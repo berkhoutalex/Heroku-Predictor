@@ -1,0 +1,65 @@
+Seed,School,Conference,Record,Berth type,Overall rank,Region
+1,Kentucky,SEC,34–0,Auto,1,Midwest
+2,Kansas,Big 12,26–8,At-large,8,Midwest
+3,Notre Dame,ACC,29–5,Auto,12,Midwest
+4,Maryland,Big Ten,27–6,At-large,14,Midwest
+5,West Virginia,Big 12,23–9,At-large,19,Midwest
+6,Butler,Big East,22–10,At-large,23,Midwest
+7,Wichita State,Missouri Valley,28–4,At-large,26,Midwest
+8,Cincinnati,American,22–10,At-large,29,Midwest
+9,Purdue,Big Ten,21–12,At-large,36,Midwest
+10,Indiana,Big Ten,20–13,At-large,37,Midwest
+11,Texas,Big 12,20–13,At-large,41,Midwest
+12,Buffalo,Mid American,23–9,Auto,48,Midwest
+13,Valparaiso,Horizon,28–5,Auto,51,Midwest
+14,Northeastern,Colonial,23–11,Auto,56,Midwest
+15,New Mexico State,WAC,23–10,Auto,59,Midwest
+16,Hampton,MEAC,16–17,Auto,68,Midwest
+1,Wisconsin,Big Ten,31–3,Auto,4,West
+2,Arizona,Pac-12,31–3,Auto,6,West
+3,Baylor,Big 12,24–9,At-large,10,West
+4,North Carolina,ACC,24–11,At-large,13,West
+5,Arkansas,SEC,26–8,At-large,18,West
+6,Xavier,Big East,21–13,At-large,24,West
+7,VCU,Atlantic 10,26–9,Auto,28,West
+8,Oregon,Pac-12,25–9,At-large,30,West
+9,Oklahoma State,Big 12,18–13,At-large,34,West
+10,Ohio State,Big Ten,23–10,At-large,39,West
+11,Mississippi,SEC,20–12,At-large,43,West
+12,Wofford,Southern,28–6,Auto,49,West
+13,Harvard,Ivy,22–7,Auto,52,West
+14,Georgia State,Sun Belt,24–9,Auto,55,West
+15,Texas Southern,SWAC,22–12,Auto,61,West
+16,Coastal Carolina,Big South,24–9,Auto,64,West
+1,Villanova,Big East,32–2,Auto,2,East
+2,Virginia,ACC,29–3,At-large,5,East
+3,Oklahoma,Big 12,22–10,At-large,11,East
+4,Louisville,ACC,24–8,At-large,15,East
+5,Northern Iowa,Missouri Valley,30–3,Auto,20,East
+6,Providence,Big East,22–11,At-large,22,East
+7,Michigan State,Big Ten,23–11,At-large,25,East
+8,North Carolina State,ACC,20–13,At-large,31,East
+9,LSU,SEC,22–10,At-large,35,East
+10,Georgia,SEC,21–11,At-large,40,East
+11,Dayton,Atlantic 10,25–8,At-large,46,East
+12,Wyoming,Mountain West,25–9,Auto,47,East
+13,UC Irvine,Big West,21–12,Auto,54,East
+14,Albany,America East,24–8,Auto,58,East
+15,Belmont,Ohio Valley,22–10,Auto,60,East
+16,Lafayette,Patriot,20–12,Auto,63,East
+1,Duke,ACC,29–4,At-large,3,South
+2,Gonzaga,West Coast,32–2,Auto,7,South
+3,Iowa State,Big 12,25–8,Auto,9,South
+4,Georgetown,Big East,21–10,At-large,16,South
+5,Utah,Pac-12,24–8,At-large,17,South
+6,SMU,American,27–6,Auto,21,South
+7,Iowa,Big Ten,21–11,At-large,27,South
+8,San Diego State,Mountain West,26–8,At-large,32,South
+9,St. John's,Big East,21–11,At-large,33,South
+10,Davidson,Atlantic 10,24–7,At-large,38,South
+11,UCLA,Pac-12,20–13,At-large,42,South
+12,Stephen F. Austin,Southland,29–4,Auto,50,South
+13,Eastern Washington,Big Sky,26–8,Auto,53,South
+14,UAB,C-USA,19–15,Auto,57,South
+15,North Dakota State,Summit,23–9,Auto,62,South
+16,Robert Morris,NEC,19–14,Auto,66,South
