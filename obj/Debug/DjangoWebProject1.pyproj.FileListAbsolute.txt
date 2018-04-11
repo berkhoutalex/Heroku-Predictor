@@ -1,3 +1,4 @@
 C:\Users\berkh\source\repos\DjangoWebProject1\DjangoWebProject1\obj\Debug\DjangoWebProject1.pyproj.CoreCompileInputs.cache
 C:\Users\berkh\Documents\NCAA-Bracket-Predictor\obj\Debug\DjangoWebProject1.pyproj.CoreCompileInputs.cache
 C:\Users\berkh\Documents\GitHub\NCAA-Bracket-Predictor\Django Stuff\NCAA-Bracket-Predictor\obj\Debug\DjangoWebProject1.pyproj.CoreCompileInputs.cache
+C:\Users\berkh\Documents\GitHub\Heroku-Predictor\obj\Debug\DjangoWebProject1.pyproj.CoreCompileInputs.cache
