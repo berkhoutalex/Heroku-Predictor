@@ -2,17 +2,17 @@ import pandas as pd
 import math
 
 # import data sets that will be used from kaggle
-seeds = pd.read_csv("app\\csvs\\kaggle\\predictive\\NCAATourneySeeds.csv")
-regions = pd.read_csv("app\\csvs\\kaggle\\predictive\\Seasons.csv")
-team_names = pd.read_csv("app\\csvs\\kaggle\\predictive\\Teams.csv")
-regular_season = pd.read_csv("app\\csvs\\kaggle\\regular_season_stats.csv", encoding = 'latin-1')
+seeds = pd.read_csv("app\\static\\app\\csvs\\kaggle\\predictive\\NCAATourneySeeds.csv")
+regions = pd.read_csv("app\\static\\app\\csvs\\kaggle\\predictive\\Seasons.csv")
+team_names = pd.read_csv("app\\static\\app\\csvs\\kaggle\\predictive\\Teams.csv")
+regular_season = pd.read_csv("app\\static\\app\\csvs\\kaggle\\regular_season_stats.csv", encoding = 'latin-1')
 
 
 # our made data sets 
-outcomes_14 = pd.read_csv("app\\csvs\\1314\\1314_outcomes.csv", encoding = 'latin-1')
-outcomes_15 = pd.read_csv("app\\csvs\\1415\\1415_outcomes.csv", encoding = 'latin-1')
-outcomes_16 = pd.read_csv("app\\csvs\\1516\\1516_outcomes.csv", encoding = 'latin-1')
-outcomes_17 = pd.read_csv("app\\csvs\\1617\\1617_outcomes.csv", encoding = 'latin-1')
+outcomes_14 = pd.read_csv("app\\static\\app\\csvs\\1314\\1314_outcomes.csv", encoding = 'latin-1')
+outcomes_15 = pd.read_csv("app\\static\\app\\csvs\\1415\\1415_outcomes.csv", encoding = 'latin-1')
+outcomes_16 = pd.read_csv("app\\static\\app\\csvs\\1516\\1516_outcomes.csv", encoding = 'latin-1')
+outcomes_17 = pd.read_csv("app\\static\\app\\csvs\\1617\\1617_outcomes.csv", encoding = 'latin-1')
 outcomes = [outcomes_14, outcomes_15, outcomes_16, outcomes_17]
 
 
