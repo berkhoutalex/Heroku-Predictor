@@ -1,0 +1,65 @@
+Seed,School,Conference,Record,Berth type,Overall rank,
+1,Villanova,Big East,31–3,Auto,1,East
+2,Duke,ACC,27–8,Auto,7,East
+3,Baylor,Big 12,25–7,At-Large,12,East
+4,Florida,SEC,24–8,At-Large,14,East
+5,Virginia,ACC,22–10,At-Large,17,East
+6,SMU,American,30–4,Auto,21,East
+7,South Carolina,SEC,22–10,At-Large,26,East
+8,Wisconsin,Big Ten,25–9,At-Large,29,East
+9,Virginia Tech,ACC,22–10,At-Large,36,East
+10,Marquette,Big East,19–12,At-Large,39,East
+11,USC,Pac-12,24–9,At-Large,45,East
+12,UNC Wilmington,CAA,29–5,Auto,49,East
+13,East Tennessee State,Southern,27–7,Auto,52,East
+14,New Mexico State,WAC,28–5,Auto,55,East
+15,Troy,Sun Belt,22–14,Auto,60,East
+16,Mount St. Mary's,NEC,19–15,Auto,68,East
+1,Gonzaga,WCC,32–1,Auto,4,West
+2,Arizona,Pac-12,30–4,Auto,6,West
+3,Florida State,ACC,25–8,At-Large,10,West
+4,West Virginia,Big 12,26–8,At-Large,15,West
+5,Notre Dame,ACC,25–9,At-Large,19,West
+6,Maryland,Big Ten,24–8,At-Large,23,West
+7,Saint Mary's,WCC,28–4,At-Large,25,West
+8,Northwestern,Big Ten,23–11,At-Large,32,West
+9,Vanderbilt,SEC,19–15,At-Large,33,West
+10,VCU,Atlantic 10,26–8,At-Large,40,West
+11,Xavier,Big East,21–13,At-Large,41,West
+12,Princeton,Ivy League,23–6,Auto,50,West
+13,Bucknell,Patriot,26–8,Auto,51,West
+14,Florida Gulf Coast,Atlantic Sun,26–7,Auto,56,West
+15,North Dakota,Big Sky,22–9,Auto,62,West
+16,South Dakota State,Summit League,18–16,Auto,64,West
+1,Kansas,Big 12,28–4,At-Large,2,Midwest
+2,Louisville,ACC,24–8,At-Large,8,Midwest
+3,Oregon,Pac-12,29–5,At-Large,9,Midwest
+4,Purdue,Big Ten,25–7,At-Large,16,Midwest
+5,Iowa State,Big 12,23–10,Auto,20,Midwest
+6,Creighton,Big East,25–9,At-Large,24,Midwest
+7,Michigan,Big Ten,24–11,Auto,27,Midwest
+8,Miami (FL),ACC,21–11,At-Large,30,Midwest
+9,Michigan State,Big Ten,19–14,At-Large,35,Midwest
+10,Oklahoma State,Big 12,20–12,At-Large,37,Midwest
+11,Rhode Island,Atlantic 10,24–9,Auto,44,Midwest
+12,Nevada,Mountain West,28–6,Auto,47,Midwest
+13,Vermont,America East,29–5,Auto,53,Midwest
+14,Iona,MAAC,22–12,Auto,58,Midwest
+15,Jacksonville State,Ohio Valley,20–14,Auto,61,Midwest
+16,UC Davis,Big West,22–12,Auto,65,Midwest
+1,North Carolina,ACC,27–7,At-Large,3,South
+2,Kentucky,SEC,29–5,Auto,5,South
+3,UCLA,Pac-12,29–4,At-Large,11,South
+4,Butler,Big East,23–8,At-Large,13,South
+5,Minnesota,Big Ten,24–9,At-Large,18,South
+6,Cincinnati,American,29–5,At-Large,22,South
+7,Dayton,Atlantic 10,24–7,At-Large,28,South
+8,Arkansas,SEC,25–9,At-Large,31,South
+9,Seton Hall,Big East,21–11,At-Large,34,South
+10,Wichita State,Missouri Valley,30–4,Auto,38,South
+11,Kansas State,Big 12,20–13,At-Large,46,South
+12,Middle Tennessee,Conference USA,30–4,Auto,48,South
+13,Winthrop,Big South,26–6,Auto,54,South
+14,Kent State,MAC,22–13,Auto,57,South
+15,Northern Kentucky,Horizon,24–10,Auto,59,South
+16,Texas Southern,SWAC,23–11,Auto,63,South

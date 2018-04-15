@@ -1,0 +1,19 @@
+﻿<!doctype html>
+<html lang="en" class="no-js">
+<body>
+<form action="bracket" method="get">
+        <label for="yearSelect">Choose year</label>
+        <select type="text" id="yearSelect" name="yearSelect">
+        <option>2018</option>
+        <option>2017</option>
+        <option>2016</option>
+        <option>2015</option>
+        <option>2014</option>
+    </select>
+        <label for="results">Enter an indicator: </label>
+        <input id="results" type="text" name="results" value="{{ search_results }}">
+        <input type="submit" value="generate">
+</form>
+</body>
+
+</html>
