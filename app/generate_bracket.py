@@ -7,6 +7,8 @@ import boto3
 import io
 with urllib.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt") as url:
     s = url.read()
+url = urllib.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt")
+s = url.read()
 seeds1 = s.split()
 bucket = 'predictorbucket'
 file_name = "static/app/content/Seasons.csv"
