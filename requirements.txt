@@ -3,3 +3,4 @@ pyinstaller
 numpy
 pandas
 gunicorn
+boto3

@@ -27,7 +27,8 @@ SECRET_KEY = '79f837d8-cd25-478d-8da0-4628d3df99c9'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-	'ncaabracketpredictor.herokuapp.com'
+	'ncaabracketpredictor.herokuapp.com',
+	'localhost'
 ]
 
 

@@ -1,9 +1,23 @@
 import pandas as pd
 import math
-
+# you may also want to remove whitespace characters like `\n` at the end of each line
 # import data sets that will be used from kaggle
-seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
-regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
+import urllib.request
+import boto3
+import io
+with urllib.request.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt") as url:
+    s = url.read()
+seeds1 = s.split()
+bucket = 'predictorbucket'
+file_name = "static/app/content/Seasons.csv"
+s3 = boto3.client('s3')
+obj = s3.get_object(bucket=bucket, key = file_name)
+regions = pd.read_csv(io.BytesIO(obj['Body'].read()))
+file_name2 = "static/app/content/Seasons.csv"
+obj = s3.get_object(bucket=bucket, key = file_name)
+seeds = pd.read_csv(io.BytesIO(obj['Body'].read()))
+#seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
+#regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
 team_names = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Teams.csv")
 regular_season = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/regular_season_stats.csv", encoding = 'latin-1')
 
@@ -87,15 +101,15 @@ def get_actual_results(season):
 
 def get_tourney_order(season):
     tourney_order = []
-    for x in open('https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt', 'r'):
-        tourney_order.append(get_name(x.strip(),season))
+    for x in seeds1:
+        tourney_order.append(get_name(x,season))
     return tourney_order
 
 # returns results from tournament given a set of indicators
 def get_tourney_results(season, indicators):
     tourney_order = []
-    for x in open('https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt', 'r'):
-        tourney_order.append(x.strip())
+    for x in seeds1:
+        tourney_order.append(x)
 
     #resets array in format [roundof32, sweet16, elite8, final4, finals, ncaa_winner]
     tourney_results = [[], [], [], [], [], []]
