@@ -2,7 +2,7 @@ import pandas as pd
 import math
 # you may also want to remove whitespace characters like `\n` at the end of each line
 # import data sets that will be used from kaggle
-from urllib import urlopen
+from urllib2 import urlopen
 import boto3
 import io
 with urllib.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt") as url:
