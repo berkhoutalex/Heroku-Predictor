@@ -4,7 +4,6 @@ Definition of views.
 
 from django.shortcuts import render
 from app import generate_bracket
-from win32timezone import now
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
