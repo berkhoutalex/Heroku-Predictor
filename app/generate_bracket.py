@@ -2,17 +2,17 @@ import pandas as pd
 import math
 
 # import data sets that will be used from kaggle
-seeds = pd.read_csv("\\static\\app\\csvs\\kaggle\\predictive\\NCAATourneySeeds.csv")
-regions = pd.read_csv("\\static\\app\\csvs\\kaggle\\predictive\\Seasons.csv")
-team_names = pd.read_csv("\\static\\app\\csvs\\kaggle\\predictive\\Teams.csv")
-regular_season = pd.read_csv("\\static\\app\\csvs\\kaggle\\regular_season_stats.csv", encoding = 'latin-1')
+seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
+regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
+team_names = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Teams.csv")
+regular_season = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/regular_season_stats.csv", encoding = 'latin-1')
 
 
 # our made data sets 
-outcomes_14 = pd.read_csv("\\static\\1314\\1314_outcomes.csv", encoding = 'latin-1')
-outcomes_15 = pd.read_csv("\\static\\app\\csvs\\1415\\1415_outcomes.csv", encoding = 'latin-1')
-outcomes_16 = pd.read_csv("\\static\\app\\csvs\\1516\\1516_outcomes.csv", encoding = 'latin-1')
-outcomes_17 = pd.read_csv("\\static\\app\\csvs\\1617\\1617_outcomes.csv", encoding = 'latin-1')
+outcomes_14 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1314/1314_outcomes.csv", encoding = 'latin-1')
+outcomes_15 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1415/1415_outcomes.csv", encoding = 'latin-1')
+outcomes_16 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1516/1516_outcomes.csv", encoding = 'latin-1')
+outcomes_17 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1617/1617_outcomes.csv", encoding = 'latin-1')
 outcomes = [outcomes_14, outcomes_15, outcomes_16, outcomes_17]
 
 
@@ -87,14 +87,14 @@ def get_actual_results(season):
 
 def get_tourney_order(season):
     tourney_order = []
-    for x in open('..\\static\\app\\content\\order.txt', 'r'):
+    for x in open('https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt', 'r'):
         tourney_order.append(get_name(x.strip(),season))
     return tourney_order
 
 # returns results from tournament given a set of indicators
 def get_tourney_results(season, indicators):
     tourney_order = []
-    for x in open('..\\static\\app\\content\\order.txt', 'r'):
+    for x in open('https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt', 'r'):
         tourney_order.append(x.strip())
 
     #resets array in format [roundof32, sweet16, elite8, final4, finals, ncaa_winner]
