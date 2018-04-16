@@ -2,10 +2,10 @@ import pandas as pd
 import math
 # you may also want to remove whitespace characters like `\n` at the end of each line
 # import data sets that will be used from kaggle
-import urllib.request
+from urllib import urlopen
 import boto3
 import io
-with urllib.request.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt") as url:
+with urllib.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt") as url:
     s = url.read()
 seeds1 = s.split()
 bucket = 'predictorbucket'
