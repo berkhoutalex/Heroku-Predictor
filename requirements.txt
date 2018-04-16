@@ -1,6 +1,5 @@
 django >=1.9, <2
-pyinstaller >= 3.3.1
+pyinstaller > 3.3.1
 numpy
 pandas
 gunicorn
---upgrade pyinstaller
