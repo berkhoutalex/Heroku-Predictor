@@ -11,10 +11,10 @@ seeds1 = s.split()
 bucket = 'predictorbucket'
 file_name = "static/app/content/Seasons.csv"
 s3 = boto3.client('s3')
-obj = s3.get_object(bucket=bucket, key = file_name)
+obj = s3.get_object(Bucket=bucket, Key = file_name)
 regions = pd.read_csv(io.BytesIO(obj['Body'].read()))
 file_name2 = "static/app/content/Seasons.csv"
-obj = s3.get_object(bucket=bucket, key = file_name)
+obj = s3.get_object(Bucket=bucket, Key = file_name)
 seeds = pd.read_csv(io.BytesIO(obj['Body'].read()))
 #seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
 #regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
