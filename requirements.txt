@@ -4,3 +4,4 @@ numpy
 pandas
 gunicorn
 boto3
+urllib
