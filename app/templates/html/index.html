@@ -1,56 +1,160 @@
 ﻿<!doctype html>
 <html lang="en" class="no-js">
-<body>
-<form action="bracket" method="get">
-        <label for="yearSelect">Choose year</label>
-        <select type="text" id="yearSelect" name="yearSelect">
-        <option>2018</option>
-        <option>2017</option>
-        <option>2016</option>
-        <option>2015</option>
-        <option>2014</option>
-    </select>
-        <label for="results">Enter an indicator: </label>
-        <input id="results" type="text" name="results" value="{{ search_results }}">
-        <input type="submit" value="generate">
-</form>
 
-<p>Indicators for input : <br /> 
-Acronym| Indicator <br />
---- | --- <br />
-G | Games <br />
-W | Wins <br />
-L | Losses <br />
-FGM | Field Goals Made <br />
-FGA | Field Goals Attempted <br />
-FG% | Field Goal Percentage <br />
-FGM3 | Three Point Field Goals Made <br />
-FGA3 | Three Point Field Goals Attempted <br />
-FG3% | Three Point Field Goal Percentage <br />
-FTM | Free Throws Made <br />
-FTA | Free Throws Attempted <br />
-FT% | Free Throw Percentage <br />
-OR | Offensive Rating <br />
-DR | Defensive Rating <br />
-Ast | Assists <br />
-TO | Turnovers <br />
-Stl | Steals <br />
-Blk | Blocks <br />
-PF | Points For <br />
-OFGM | Opponent Field Goals Made <br />
-OFGA | Opponent Field Goals Attempted <br />
-OFGM3 | Opponent Three Point Field Goals Made <br />
-OFGA3 | Opponent Three Point Field Goals Attempted <br />
-OFTM | Opponent Free Throws Made <br />
-OFTA | Opponent Free Throws Attempted <br />
-OOR | Opponent Offensive Rating <br />
-ODR | Opponent Defensive Rating <br />
-OAst | Opponent Assists <br />
-OTO | Opponent Turnovers <br />
-OStl | Opponent Steals <br />
-OBlk | Opponent Blocks <br />
-OPF | Opponent Points For </p>
+<body style="font-family: 'Helvetica Neue', Helvetica, Arial, FreeSans, sans-serif;">
+    <center>
+        <h1>NCAA Bracket Predictor</h1>
+        <form action="bracket" method="get">
+            <label for="yearSelect">Choose year</label>
+            <select type="text" id="yearSelect" name="yearSelect">
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+            </select>
+            <label for="results">&nbsp;&nbsp;&nbsp;&nbsp;Enter an indicator: </label>
+            <input id="results" type="text" name="results" value="{{ search_results }}">
+            <input type="submit" value="Generate Bracket">
+        </form>
 
+        <h3>Indicators for input:</h3>
+        <table border=1 frame=void rules=rows cellpadding=3>
+            <col width="100">
+            <tr>
+                <th>Acronym</th>
+                <th>Indicator</th>
+            </tr>
+            <tr>
+                <td>G</td>
+                <td>Games</td>
+            </tr>
+            <tr>
+                <td>W</td>
+                <td>Wins</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>Losses</td>
+            </tr>
+            <tr>
+                <td>FGM</td>
+                <td>Field Goals Made</td>
+            </tr>
+            <tr>
+                <td>FGA</td>
+                <td>Field Goals Attempted</td>
+            </tr>
+            <tr>
+                <td>FG%</td>
+                <td>Field Goal Percentage</td>
+            </tr>
+            <tr>
+                <td>FGM3</td>
+                <td>Three Point Field Goals Made</td>
+            </tr>
+            <tr>
+                <td>FGA3</td>
+                <td>Three Point Field Goals Attempted</td>
+            </tr>
+            <tr>
+                <td>FG3%</td>
+                <td>Three Point Field Goal Percentage</td>
+            </tr>
+            <tr>
+                <td>FTM</td>
+                <td>Free Throws Made</td>
+            </tr>
+            <tr>
+                <td>FTA</td>
+                <td>Free Throws Attempted</td>
+            </tr>
+            <tr>
+                <td>FT%</td>
+                <td>Free Throw Percentage</td>
+            </tr>
+            <tr>
+                <td>OR</td>
+                <td>Offensive Rating</td>
+            </tr>
+            <tr>
+                <td>DR</td>
+                <td>Defensive Rating</td>
+            </tr>
+            <tr>
+                <td>Ast</td>
+                <td>Assists</td>
+            </tr>
+            <tr>
+                <td>TO</td>
+                <td>Turnovers</td>
+            </tr>
+            <tr>
+                <td>Stl</td>
+                <td>Steals</td>
+            </tr>
+            <tr>
+                <td>Blk</td>
+                <td>Blocks</td>
+            </tr>
+            <tr>
+                <td>PF</td>
+                <td>Points For</td>
+            </tr>
+            <tr>
+                <td>OFGM</td>
+                <td>Opponent Field Goals Made</td>
+            </tr>
+            <tr>
+                <td>OFGA</td>
+                <td>Opponent Field Goals Attempted</td>
+            </tr>
+            <tr>
+                <td>OFGM3</td>
+                <td>Opponent Three Point Field Goals Made</td>
+            </tr>
+            <tr>
+                <td>OFGA3</td>
+                <td>Opponent Three Point Field Goals Attempted</td>
+            </tr>
+            <tr>
+                <td>OFTM</td>
+                <td>Opponent Free Throws Made</td>
+            </tr>
+            <tr>
+                <td>OFTA</td>
+                <td>Opponent Free Throws Attempted</td>
+            </tr>
+            <tr>
+                <td>OOR</td>
+                <td>Opponent Offensive Rating</td>
+            </tr>
+            <tr>
+                <td>ODR</td>
+                <td>Opponent Defensive Rating</td>
+            </tr>
+            <tr>
+                <td>OAst</td>
+                <td>Opponent Assists</td>
+            </tr>
+            <tr>
+                <td>OTO</td>
+                <td>Opponent Turnovers</td>
+            </tr>
+            <tr>
+                <td>OStl</td>
+                <td>Opponent Steals</td>
+            </tr>
+            <tr>
+                <td>OBlk</td>
+                <td>Opponent Blocks</td>
+            </tr>
+            <tr>
+                <td>OPF</td>
+                <td>Opponent Points For</td>
+            </tr>
+        </table>
+
+        <center>
 </body>
 
 </html>
