@@ -10,7 +10,7 @@ from datetime import datetime
 listResults = []
 listIndicator = []
 listOrder = []
-def home(request):
+def home(request): #home page request
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     return render(
@@ -22,7 +22,7 @@ def home(request):
 
 
 
-def bracket(request):
+def bracket(request): #bracket page request
     inp_value = request.GET.get('results', 'This is a default value')
     context = {'inp_value': inp_value}
     year_Val = request.GET.get('yearSelect','This is a default value')

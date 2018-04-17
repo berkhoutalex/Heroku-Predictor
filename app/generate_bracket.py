@@ -5,10 +5,11 @@ import math
 import urllib
 import boto3
 import io
-url = urllib.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt")
+url = urllib.urlopen("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/order.txt") #reads order.txt from S3 Bucket
 s = url.read()
 seeds1 = s.split()
-bucket = 'predictorbucket'
+#this is all for reading a csv with pandas
+bucket = 'predictorbucket' 
 file_name = "static/app/csvs/kaggle/predictive/Seasons.csv"
 s3 = boto3.client('s3')
 obj = s3.get_object(Bucket=bucket, Key = file_name)
@@ -18,6 +19,7 @@ obj = s3.get_object(Bucket=bucket, Key = file_name2)
 seeds = pd.read_csv(io.BytesIO(obj['Body'].read()))
 #seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
 #regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
+#last two files
 team_names = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Teams.csv")
 regular_season = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/regular_season_stats.csv", encoding = 'latin-1')
 
