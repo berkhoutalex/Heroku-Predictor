@@ -23,7 +23,7 @@ def home(request): #home page request
 
 
 def bracket(request): #bracket page request
-    inp_value = request.GET.getlist('selectInd', 'This is a default value')
+    inp_value = request.GET.getlist('selectInd', 'G')
     year_Val = request.GET.get('yearSelect','This is a default value')
     print('inp_value')
     print(inp_value)
