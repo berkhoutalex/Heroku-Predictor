@@ -12,6 +12,7 @@ listIndicator = []
 listOrder = []
 def home(request): #home page request
     """Renders the home page."""
+    indicator = IndicatorForm()
     assert isinstance(request, HttpRequest)
     return render(
         request,
