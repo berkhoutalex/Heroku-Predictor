@@ -32,8 +32,6 @@ def bracket(request): #bracket page request
         indicator = request.GET.get('i' + str(i), 'default')
         indicators.append(indicator)
 
-    print('indicators' + indicators)
-
     year = int(year_Val)
     listResults = generate_bracket.get_tourney_results(year, indicators)
     listOrder = generate_bracket.get_tourney_order(year)
