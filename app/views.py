@@ -30,7 +30,8 @@ def bracket(request): #bracket page request
     indicators = []
     for i in range(1, 33):
         indicator = request.GET.get('i' + str(i), 'default')
-        indicators.append(indicator)
+        if (indicator is not 'default'):
+            indicators.append(indicator)
 
     year = int(year_Val)
     listResults = generate_bracket.get_tourney_results(year, indicators)
