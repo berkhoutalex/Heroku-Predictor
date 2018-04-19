@@ -33,7 +33,7 @@ def bracket(request): #bracket page request
     indicators = []
     for i in range(1, 33):
         indicator = request.GET.get('i' + str(i), 'off')
-        if (indicator is 'on'):
+        if (indicator == 'on'):
             indicators.append(all_indicators[i])
 
     year = int(year_Val)
