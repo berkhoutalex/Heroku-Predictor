@@ -25,6 +25,12 @@ def home(request): #home page request
 def bracket(request): #bracket page request
     inp_value = request.GET.get('selectInd', 'This is a default value')
     year_Val = request.GET.get('yearSelect','This is a default value')
+    print('inp_value')
+    print(inp_value)
+    print(type(inp_value))
+    print('year_Val')
+    print(year_Val)
+    print(type(year_Val))
     year = int(year_Val)
     listResults = generate_bracket.get_tourney_results(year, inp_value)
     listOrder = generate_bracket.get_tourney_order(year)
