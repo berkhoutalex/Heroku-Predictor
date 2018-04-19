@@ -34,7 +34,7 @@ def bracket(request): #bracket page request
     for i in range(1, 33):
         indicator = request.GET.get('i' + str(i), 'off')
         if (indicator == 'on'):
-            indicators.append(all_indicators[i])
+            indicators.append(all_indicators[i - 1])
 
     year = int(year_Val)
     listResults = generate_bracket.get_tourney_results(year, indicators)
