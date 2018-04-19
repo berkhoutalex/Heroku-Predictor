@@ -49,7 +49,6 @@ def bracket(request): #bracket page request
         request,
         'html/bracket.html',
         {
-            'indicators':indicators #delete
             'round1':listOrder,
             'roundOthers':listResults,
             'loser':loser
