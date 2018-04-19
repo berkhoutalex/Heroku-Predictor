@@ -23,12 +23,12 @@ def home(request): #home page request
 
 
 def bracket(request): #bracket page request
-    inp_value = request.GET.get('results', 'This is a default value')
+    inp_value = request.GET.get('selectInd', 'This is a default value')
     context = {'inp_value': inp_value}
     year_Val = request.GET.get('yearSelect','This is a default value')
     context = {'year_Val': year_Val}
     year = int(year_Val)
-    listResults = generate_bracket.get_tourney_results(year, [inp_value])
+    listResults = generate_bracket.get_tourney_results(year, inp_value)
     listOrder = generate_bracket.get_tourney_order(year)
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]

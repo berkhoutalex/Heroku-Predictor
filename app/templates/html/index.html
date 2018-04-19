@@ -12,8 +12,41 @@
                 <option>2015</option>
                 <option>2014</option>
             </select>
-            <label for="results">&nbsp;&nbsp;&nbsp;&nbsp;Enter an indicator: </label>
-            <input id="results" type="text" name="results" value="{{ search_results }}">
+            <label for="selectInd">Choose year</label>
+            <select multiple type="text" id="selectInd" name="selectInd">
+                <option value="G">Games</option>
+                <option value="W">Wins</option>
+                <option value="L">Losses</option>
+                <option value="FGM">Field Goals Made</option>
+                <option value="FGA">Field Goals Attempted</option>
+                <option value="FG%">Field Goal Percentage</option>
+                <option value="FGM3">Three Point Field Goals Made</option>
+                <option value="FGA3">Three Point Field Goals Attempted</option>
+                <option value="FG3%">Three Point Field Goal Percentage</option>
+                <option value="FTM">Free Throws Made</option>
+                <option value="FTA">Free Throws Attempted</option>
+                <option value="FT%">Free Throw Percentage</option>
+                <option value="OR">Offensive Rating</option>
+                <option value="DR">Defensive Rating</option>
+                <option value="Ast">Assists</option>
+                <option value="TO">Turnovers</option>
+                <option value="Stl">Steals</option>
+                <option value="Blk">Blocks</option>
+                <option value="PF">Points For</option>
+                <option value="OFGM">Opponent Field Goals Made</option>
+                <option value="OFGA">Opponent Field Goals Attempted</option>
+                <option value="OFGM3">Opponent Three Point Field Goals Made</option>
+                <option value="OFGMA3">Opponent Three Point Field Goals Attempted</option>
+                <option value="OFGA3">Opponent Free Throws Made</option>
+                <option value="OFTM">Opponent Free Throws Attempted</option>
+                <option value="OOR">Opponent Offensive Rating</option>
+                <option value="ODR">Opponent Defensive Rating</option>
+                <option value="OAst">Opponent Assists</option>
+                <option value="OTO">Opponent Turnovers</option>
+                <option value="OStl">Opponent Steals</option>
+                <option value="OBlk">Opponent Blocks</option>
+                <option value="OPF">Opponent Points For</option>
+          </select>
             <input type="submit" value="Generate Bracket">
         </form>
 
