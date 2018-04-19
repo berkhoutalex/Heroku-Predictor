@@ -25,13 +25,16 @@ def home(request): #home page request
 def bracket(request): #bracket page request
     #inp_value = request.GET.getlist('selectInd', 'W')
     year_Val = request.GET.get('yearSelect','This is a default value')
-
+    all_indicators = ['G','W','L','FGM','FGA','FG%','FGM3','FGA3','FG3%','FTM',
+                      'FTA','FT%','OR','DR','Ast','TO','Stl','Blk','PF','OFGM',
+                      'OFGA','OFGM3','OFGA3','OFTM','OFTA','OOR','ODR','OAst',
+                      'OTO','OStl','OBlk','OPF']
     # get checkbox values
     indicators = []
     for i in range(1, 33):
-        indicator = request.GET.get('i' + str(i), 'default')
-        if (indicator is not 'default'):
-            indicators.append(indicator)
+        indicator = request.GET.get('i' + str(i), 'off')
+        if (indicator is 'on'):
+            indicators.append(all_indicators[i])
 
     year = int(year_Val)
     listResults = generate_bracket.get_tourney_results(year, indicators)
