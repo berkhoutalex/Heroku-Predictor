@@ -39,7 +39,7 @@ def bracket(request): #bracket page request
             weight.append(weight)
             indicators.append(all_indicators[i - 1])
     year = int(year_Val)
-    print "%a" weights
+    print(*weights)
 
     listResults = generate_bracket.get_tourney_results(year, indicators)
     listOrder = generate_bracket.get_tourney_order(year)
