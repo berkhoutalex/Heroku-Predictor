@@ -136,6 +136,77 @@ def get_tourney_results(season, indicators):
     return tourney_results
 
 
+# makes a prediction on who will win given set of indicators and weights
+def prediction(team1, team2, indicators, season, weights):
+    t1 = get_teamID(team1, season)
+    t2 = get_teamID(team2, season)
+    
+    t1_stats, t2_stats, t1_weighted, t2_weighted = [], [], 0, 0 
+    
+    
+    for i in indicators:
+        t1_stats.append(get_stat(t1, season, i))
+        t2_stats.append(get_stat(t2, season, i))
+    
+    # if there is no weights given, assigns each stat the same weight 
+    if weights == 0:
+        weights = []        
+        for i in range(len(indicators)):
+            weights.append(1 / len(indicators))
+    
+    # calculates weighted stat for each team 
+    for i in range(len(weights)):
+        t1_weighted += weights[i] * t1_stats[i]
+        t2_weighted += weights[i] * t2_stats[i]
+    
+    if t1_weighted > t2_weighted:
+        return team1, team2, 0
+    else:
+        return team2, team1, 1
+
+
+# returns actual results of tournament from that season
+def get_actual_results(season):
+    actual_results = [[], [], [], [], [], []]
+    
+    season_outcome = outcomes[season - 2014]
+    
+    for round_num in range(0, 6):
+        num_teams = 2 ** (5 - round_num)
+        for i in range(num_teams):
+            actual_results[round_num].append(season_outcome.iloc[0:num_teams, round_num + 1].values[i])
+    return actual_results
+
+
+# returns results from tournament given a set of indicators
+def get_tourney_results(season, indicators, weights=0):
+    tourney_order = []
+    for x in open('order.txt', 'r'):
+        tourney_order.append(x.strip())
+
+    #resets array in format [roundof32, sweet16, elite8, final4, finals, ncaa_winner]
+    tourney_results = [[], [], [], [], [], []]
+    next_round = tourney_order[:]
+
+    for round_num in range(0, 6):        
+        num_teams = 2 ** (6 - round_num)
+        for i in range(0, num_teams, 2):
+
+            team1 = next_round[i]
+            team2 = next_round[i + 1]
+
+            # which represents which team to append to the next_round
+            # which 0 means team1 and which 2 means team2
+            winner, loser, which = prediction(team1, team2, indicators, season,weights)
+            next_round.append(next_round[i + which])
+
+            tourney_results[round_num].append(winner)
+
+        del next_round[0:num_teams]
+
+    return tourney_results
+
+
 # calculates how many points the predicted got compared to actual
 def get_points(tourney_results, actual_results):
     # initializes points and the amount of games correct
@@ -150,13 +221,3 @@ def get_points(tourney_results, actual_results):
                 games_correct += 1
     return points, games_correct
 
-season = 2014
-best_points = 0
-best_games = 0
-best_indicator = 'n/a'
-actual_results = get_actual_results(season)
-
-
-# nested loop to check every combination of two indicators
-# this code is easily changed to simulate different situations
-# change to [:, 3:] for regular use but takes long time
