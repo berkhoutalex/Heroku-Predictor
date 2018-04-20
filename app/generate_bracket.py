@@ -61,7 +61,7 @@ def get_stat(team, season, indicator):
 
 
 # makes a prediction on who will win given set of indicators and weights
-def prediction(team1, team2, indicators, season, weights):
+def prediction(team1, team2, indicators, season, weights = 0):
     t1 = get_teamID(team1, season)
     t2 = get_teamID(team2, season)
     
@@ -108,7 +108,7 @@ def get_tourney_order(season):
     return tourney_order
 
 # returns results from tournament given a set of indicators
-def get_tourney_results(season, indicators, weights=0):
+def get_tourney_results(season, indicators):
     tourney_order = []
     for x in seeds1:
         tourney_order.append(x)
@@ -126,10 +126,10 @@ def get_tourney_results(season, indicators, weights=0):
 
             # which represents which team to append to the next_round
             # which 0 means team1 and which 2 means team2
-            winner, loser, which = prediction(team1, team2, indicators, season,weights)
+            winner, loser, which = prediction(team1, team2, indicators, season)
             next_round.append(next_round[i + which])
-
-            tourney_results[round_num].append(winner)
+            
+            tourney_results[round_num].append(get_name(winner, season))
 
         del next_round[0:num_teams]
 
