@@ -181,8 +181,8 @@ def get_actual_results(season):
 # returns results from tournament given a set of indicators
 def get_tourney_results(season, indicators, weights=0):
     tourney_order = []
-    for x in open('order.txt', 'r'):
-        tourney_order.append(x.strip())
+    for x in seeds1:
+        tourney_order.append(x)
 
     #resets array in format [roundof32, sweet16, elite8, final4, finals, ncaa_winner]
     tourney_results = [[], [], [], [], [], []]
