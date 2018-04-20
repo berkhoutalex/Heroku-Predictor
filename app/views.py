@@ -31,12 +31,16 @@ def bracket(request): #bracket page request
                       'OTO','OStl','OBlk','OPF']
     # get checkbox values
     indicators = []
+    weights = []
     for i in range(1, 33):
         indicator = request.GET.get('i' + str(i), 'off')
+        weight = request.Get.get('j'+str(i))
         if (indicator == 'on'):
+            weight.append(weight)
             indicators.append(all_indicators[i - 1])
-
     year = int(year_Val)
+    print "%a" weights
+
     listResults = generate_bracket.get_tourney_results(year, indicators)
     listOrder = generate_bracket.get_tourney_order(year)
 
