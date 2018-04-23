@@ -45,7 +45,7 @@ def bracket(request): #bracket page request
 
     actual_results = generate_bracket.get_actual_results(year)
     points = generate_bracket.get_points(listResults, actual_results)
-    
+    percentage = points[1] * 100 /63
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
     else:
@@ -59,7 +59,8 @@ def bracket(request): #bracket page request
             'roundOthers':listResults,
             'loser':loser,
             'points':points[0],
-            'game_correct':points[1]
+            'game_correct':points[1],
+            'percent_right':percentage
         }
     )
 
