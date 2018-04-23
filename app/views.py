@@ -43,8 +43,8 @@ def bracket(request): #bracket page request
     listResults = generate_bracket.get_tourney_results(year, indicators, weights)
     listOrder = generate_bracket.get_tourney_order(year)
 
-    actual_results = get_actual_results(year)
-    points = get_points(listresults, actual_results)
+    actual_results = generate_bracket.get_actual_results(year)
+    points = generate_bracket.get_points(listresults, actual_results)
     
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
