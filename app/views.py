@@ -34,11 +34,13 @@ def bracket(request): #bracket page request
     weights = []
     for i in range(1, 33):
         indicator = request.GET.get('i' + str(i), 'off')
+        weight = request.GET.get('j' + str(i))
         if (indicator == 'on'):
+            weights.append(weight)
             indicators.append(all_indicators[i - 1])
     year = int(year_Val)
 
-    listResults = generate_bracket.get_tourney_results(year, indicators)
+    listResults = generate_bracket.get_tourney_results(year, indicators, weights)
     listOrder = generate_bracket.get_tourney_order(year)
 
     if listResults[5][0] == listResults[4][1]:

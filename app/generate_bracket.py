@@ -61,7 +61,7 @@ def get_stat(team, season, indicator):
 
 
 # makes a prediction on who will win given set of indicators and weights
-def prediction(team1, team2, indicators, season, weights = 0):
+def prediction(team1, team2, indicators, season, weights):
     t1 = get_teamID(team1, season)
     t2 = get_teamID(team2, season)
     
@@ -101,14 +101,9 @@ def get_actual_results(season):
             actual_results[round_num].append(season_outcome.iloc[0:num_teams, round_num + 1].values[i])
     return actual_results
 
-def get_tourney_order(season):
-    tourney_order = []
-    for x in seeds1:
-        tourney_order.append(get_name(x,season))
-    return tourney_order
 
 # returns results from tournament given a set of indicators
-def get_tourney_results(season, indicators):
+def get_tourney_results(season, indicators, weights):
     tourney_order = []
     for x in seeds1:
         tourney_order.append(x)
@@ -126,14 +121,30 @@ def get_tourney_results(season, indicators):
 
             # which represents which team to append to the next_round
             # which 0 means team1 and which 2 means team2
-            winner, loser, which = prediction(team1, team2, indicators, season)
+            winner, loser, which = prediction(team1, team2, indicators, season,weights)
             next_round.append(next_round[i + which])
-            
-            tourney_results[round_num].append(get_name(winner, season))
+
+            tourney_results[round_num].append(get_name(winner,season))
 
         del next_round[0:num_teams]
 
     return tourney_results
+
+
+# calculates how many points the predicted got compared to actual
+def get_points(tourney_results, actual_results):
+    # initializes points and the amount of games correct
+    points, games_correct = 0, 0
+    
+    # calculates how many points our algorithem predicts
+    for round_num in range(0, 6):        
+        num_teams = 2 ** (5 - round_num)
+        for i in range(num_teams):
+            if tourney_results[round_num][i] == actual_results[round_num][i]:
+                points += round_num + 1
+                games_correct += 1
+    return points, games_correct
+
 
 
 # calculates how many points the predicted got compared to actual
