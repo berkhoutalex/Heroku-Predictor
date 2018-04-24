@@ -98,7 +98,7 @@ def get_actual_results(season):
     for round_num in range(0, 6):
         num_teams = 2 ** (5 - round_num)
         for i in range(num_teams):
-            actual_results[round_num].append(season_outcome.iloc[0:num_teams, round_num + 1].values[i])
+            actual_results[round_num].append(get_name(season_outcome.iloc[0:num_teams, round_num + 1].values[i], season))
     return actual_results
 
 def get_tourney_order(season):
@@ -149,30 +149,3 @@ def get_points(tourney_results, actual_results):
                 points += round_num + 1
                 games_correct += 1
     return points, games_correct
-
-
-
-# calculates how many points the predicted got compared to actual
-def get_points(tourney_results, actual_results):
-    # initializes points and the amount of games correct
-    points, games_correct = 0, 0
-    
-    # calculates how many points our algorithem predicts
-    for round_num in range(0, 6):        
-        num_teams = 2 ** (5 - round_num)
-        for i in range(num_teams):
-            if tourney_results[round_num][i] == actual_results[round_num][i]:
-                points += round_num + 1
-                games_correct += 1
-    return points, games_correct
-
-season = 2014
-best_points = 0
-best_games = 0
-best_indicator = 'n/a'
-actual_results = get_actual_results(season)
-
-
-# nested loop to check every combination of two indicators
-# this code is easily changed to simulate different situations
-# change to [:, 3:] for regular use but takes long time
