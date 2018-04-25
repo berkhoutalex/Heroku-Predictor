@@ -56,7 +56,7 @@ def bracket(request): #bracket page request
     colors = []
 
     for i in range(len(actual_results)):
-        for j in range(len(x[actual_results])):
+        for j in range(len(actual_results[i])):
             if actual_results[i][j] == listResults[i][j] :
                 colors.append(green)
             else:
