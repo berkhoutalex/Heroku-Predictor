@@ -50,7 +50,8 @@ def bracket(request): #bracket page request
         loser = listResults[4][0]
     else:
         loser = listResults[4][1]
-    colors = [red]
+    colors = ["#ff0000"]
+
     return render(
         request,
         'html/bracket.html',
