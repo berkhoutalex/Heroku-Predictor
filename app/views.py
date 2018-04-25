@@ -51,7 +51,16 @@ def bracket(request): #bracket page request
         loser = listResults[4][0]
     else:
         loser = listResults[4][1]
-    colors = ["#ff0000"]
+    green = "#008000"
+    red = "#ff0000"
+    colors = []
+
+    for i in range(len(actual_results)):
+        for j in range(len(x[actual_results])):
+            if actual_results[i][j] == listResults[i][j] :
+                colors.append(green)
+            else:
+                colors.append(red)
 
     return render(
         request,
