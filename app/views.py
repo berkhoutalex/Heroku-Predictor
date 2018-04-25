@@ -49,8 +49,10 @@ def bracket(request): #bracket page request
     percentage = points[1] * 100 /63
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
+        actual_loser = actual_results[4][0]
     else:
         loser = listResults[4][1]
+        actual_loser = actual_results[4][1]
     green = "#008000"
     red = "#ff0000"
     colors = []
@@ -61,7 +63,10 @@ def bracket(request): #bracket page request
                 colors.append(green)
             else:
                 colors.append(red)
-
+    if actual_loser == loser:
+        colors.append(green)
+    else:
+        colors.append(red)
     return render(
         request,
         'html/bracket.html',
