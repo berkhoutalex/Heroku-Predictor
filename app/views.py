@@ -50,7 +50,7 @@ def bracket(request): #bracket page request
         loser = listResults[4][0]
     else:
         loser = listResults[4][1]
-
+    colors = [red]
     return render(
         request,
         'html/bracket.html',
@@ -60,7 +60,8 @@ def bracket(request): #bracket page request
             'loser':loser,
             'points':points[0],
             'games_correct':points[1],
-            'percent_right':percentage
+            'percent_right':percentage,
+            'colors':colors
         }
     )
 
