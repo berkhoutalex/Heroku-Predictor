@@ -34,7 +34,6 @@ def bracket(request): #bracket page request
     weights = []
     for i in range(1, 33):
         indicator = request.GET.get('i' + str(i), 'off')
-        weight = int(request.GET.get('j' + str(i)))
         if (indicator == 'on'):
             weight = int(request.GET.get('j' + str(i)))
             weights.append(weight)
