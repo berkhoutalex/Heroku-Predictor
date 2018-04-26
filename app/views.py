@@ -71,9 +71,9 @@ def bracket(request): #bracket page request
 
     listResults = generate_bracket.get_tourney_results(year, indicators, weights)
     listOrder = generate_bracket.get_tourney_order(year)
-
+    predicted_results_no_names = generate_bracket.get_tourney_results_no_names(year)
     actual_results = generate_bracket.get_actual_results(year)
-    points = generate_bracket.get_points(listResults, actual_results)
+    points = generate_bracket.get_points(predicted_results_no_names, actual_results)
     percentage = points[1] * 100 / 63
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
@@ -84,10 +84,9 @@ def bracket(request): #bracket page request
     green = "#008000"
     red = "#ff0000"
     colors = []
-    print("%s", actual_results[0][0])
     for i in range(len(actual_results)):
         for j in range(len(actual_results[i])):
-            if actual_results[i][j] == listResults[i][j] :
+            if actual_results[i][j] == predicted_results_no_names[i][j] :
                 colors.append(green)
             else:
                 colors.append(red)

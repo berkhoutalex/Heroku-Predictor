@@ -135,6 +135,33 @@ def get_tourney_results(season, indicators, weights):
 
     return tourney_results
 
+def get_tourney_results_no_names(season, indicators, weights):
+    tourney_order = []
+    for x in seeds1:
+        tourney_order.append(x)
+
+    #resets array in format [roundof32, sweet16, elite8, final4, finals, ncaa_winner]
+    tourney_results = [[], [], [], [], [], []]
+    next_round = tourney_order[:]
+
+    for round_num in range(0, 6):        
+        num_teams = 2 ** (6 - round_num)
+        for i in range(0, num_teams, 2):
+
+            team1 = next_round[i]
+            team2 = next_round[i + 1]
+
+            # which represents which team to append to the next_round
+            # which 0 means team1 and which 2 means team2
+            winner, loser, which = prediction(team1, team2, indicators, season,weights)
+            next_round.append(next_round[i + which])
+
+            tourney_results[round_num].append(winner)
+
+        del next_round[0:num_teams]
+
+    return tourney_results
+
 
 # calculates how many points the predicted got compared to actual
 def get_points(tourney_results, actual_results):
