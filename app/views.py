@@ -84,7 +84,7 @@ def bracket(request): #bracket page request
     green = "#008000"
     red = "#ff0000"
     colors = []
-
+    print("%s", actual_results[0][0])
     for i in range(len(actual_results)):
         for j in range(len(actual_results[i])):
             if actual_results[i][j] == listResults[i][j] :
