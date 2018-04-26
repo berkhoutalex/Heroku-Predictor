@@ -64,7 +64,7 @@ def bracket(request): #bracket page request
     for i in range(1, len(all_indicators)+1):
         indicator = request.GET.get('i' + str(i), 'off')
         if (indicator == 'on'):
-            weight = int(request.GET.get('j' + str(i)))
+            weight = int(request.GET.get('w' + str(i)))
             weights.append(weight)
             indicators.append(all_indicators[i - 1])
     year = int(year_Val)
