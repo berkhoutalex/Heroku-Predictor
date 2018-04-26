@@ -52,14 +52,16 @@ def home(request): #home page request
 def bracket(request): #bracket page request
     #inp_value = request.GET.getlist('selectInd', 'W')
     year_Val = request.GET.get('yearSelect','This is a default value')
-    all_indicators = ['G','W','L','FGM','FGA','FG%','FGM3','FGA3','FG3%','FTM',
-                      'FTA','FT%','OR','DR','Ast','TO','Stl','Blk','PF','OFGM',
-                      'OFGA','OFGM3','OFGA3','OFTM','OFTA','OOR','ODR','OAst',
-                      'OTO','OStl','OBlk','OPF']
+    all_indicators = ['G','W','L','Eff','FGM','FG%','eFG%','FGA','FGM3','FG3%',
+                      'FGA3','FTM','FT%','FTA','OR','ORB%','DR','DRB%','Ast','TO',
+                      'TOV%','Stl','Blk','PF','OFGM','OFGA','OFG%','OeFG%','OFGM3',
+                      'OFGA3','OFG3%','OFTM','OFTA','OFT%','OOR','OORB%','ODR',
+                      'ODRB%','OAst','OTO','OTOV%','OStl','OBlk','OPF']
+                
     # get checkbox values
     indicators = []
     weights = []
-    for i in range(1, 33):
+    for i in range(1, len(all_indicators + 1)):
         indicator = request.GET.get('i' + str(i), 'off')
         if (indicator == 'on'):
             weight = int(request.GET.get('j' + str(i)))
@@ -72,7 +74,7 @@ def bracket(request): #bracket page request
 
     actual_results = generate_bracket.get_actual_results(year)
     points = generate_bracket.get_points(listResults, actual_results)
-    percentage = points[1] * 100 /63
+    percentage = points[1] * 100 / 63
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
         actual_loser = actual_results[4][0]
