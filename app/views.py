@@ -7,9 +7,35 @@ from app import generate_bracket
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
+import urllib
+import boto3
+
 listResults = []
 listIndicator = []
 listOrder = []
+
+scores_2013_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2013.txt"
+scores_2014_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2014.txt"
+scores_2015_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2015.txt"
+scores_2016_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2016.txt"
+scores_2017_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2017.txt"
+scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2018.txt"
+
+url2013 = urllib.urlopen(scores_2013_file)
+scores_13 = url2013.read().split()
+url2014 = urllib.urlopen(scores_2013_file)
+scores_14 = url2014.read().split()
+url2015 = urllib.urlopen(scores_2013_file)
+scores_15 = url2015.read().split()
+url2016 = urllib.urlopen(scores_2013_file)
+scores_16 = url2016.read().split()
+url2017 = urllib.urlopen(scores_2013_file)
+scores_17 = url2017.read().split()
+url2018 = urllib.urlopen(scores_2013_file)
+scores_18 = url2018.read().split()
+
+
+
 def home(request): #home page request
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -19,6 +45,7 @@ def home(request): #home page request
         {
         }
     )
+
 
 
 
@@ -66,6 +93,18 @@ def bracket(request): #bracket page request
         colors.append(green)
     else:
         colors.append(red)
+
+    for i in 'scores_' + str(year_Val):
+        if points > i[0]:
+            i[0]=[points, indicators, weights]
+            s3 = boto3.resource('s3')
+            bucket = 'predictorbucket' 
+            file_name = "static/app/content/Score_" + yearVal + ".txt"
+            object = s3.Object(bucket, file_name)
+            object.put(Body='scores_' + str(year_Val))
+            break
+
+        
     return render(
         request,
         'html/bracket.html',
