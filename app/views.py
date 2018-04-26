@@ -115,8 +115,8 @@ def bracket(request): #bracket page request
         request,
         'html/bracket.html',
         {
-            'round1':order_with_name,
-            'roundOthers':result,
+            'round1':listResults,
+            'roundOthers':listOrder,
             'loser':loser,
             'points':points[0],
             'games_correct':points[1],
