@@ -131,7 +131,7 @@ def get_tourney_results(season, indicators, weights=0):
             winner, loser, which = prediction(team1, team2, indicators, season,weights)
             next_round.append(next_round[i + which])
 
-            tourney_results[round_num].append(winner)
+            tourney_results[round_num].append(get_name(winner, season))
 
         del next_round[0:num_teams]
 
