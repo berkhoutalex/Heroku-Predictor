@@ -61,7 +61,7 @@ def bracket(request): #bracket page request
     # get checkbox values
     indicators = []
     weights = []
-    for i in range(1, len(all_indicators + 1)):
+    for i in range(1, len(all_indicators)+1):
         indicator = request.GET.get('i' + str(i), 'off')
         if (indicator == 'on'):
             weight = int(request.GET.get('j' + str(i)))
