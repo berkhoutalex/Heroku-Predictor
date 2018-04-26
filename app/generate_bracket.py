@@ -106,7 +106,7 @@ def get_actual_results(season):
 def get_tourney_order(season):
     tourney_order = []
     for x in seeds1:
-        tourney_order.append(x,season)
+        tourney_order.append(x)
     return tourney_order
 
 # returns results from tournament given a set of indicators
