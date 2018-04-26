@@ -71,8 +71,7 @@ def bracket(request): #bracket page request
 
     listResults = generate_bracket.get_tourney_results(year, indicators, weights)
     listOrder = generate_bracket.get_tourney_order(year)
-    print(listResults)
-    printList(order)
+
     actual_results = generate_bracket.get_actual_results(year)
     points = generate_bracket.get_points(listResults, actual_results)
     percentage = points[1] * 100 / 63
@@ -97,10 +96,6 @@ def bracket(request): #bracket page request
     else:
         colors.append(red)
 
-    results_with_names = []
-    order_with_name = []
-
-
  #   for i in 'scores_' + str(year_Val):
  #       if points > i[0]:
  #           i=[points, indicators, weights]
@@ -116,8 +111,8 @@ def bracket(request): #bracket page request
         request,
         'html/bracket.html',
         {
-            'round1':listResults,
-            'roundOthers':listOrder,
+            'round1':listOrder,
+            'roundOthers':listResults,
             'loser':loser,
             'points':points[0],
             'games_correct':points[1],

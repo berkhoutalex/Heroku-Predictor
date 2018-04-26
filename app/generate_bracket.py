@@ -16,18 +16,12 @@ obj = s3.get_object(Bucket=bucket, Key = file_name)
 regions = pd.read_csv(io.BytesIO(obj['Body'].read()))
 file_name2 = "static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv"
 obj = s3.get_object(Bucket=bucket, Key = file_name2)
-seeds = pd.read_csv(io.BytesIO(obj['Body'].read())).split(',')
-file_name3 = "static/app/csvs/kaggle/predictive/Teams.csv"
-obj = s3.get_object(Bucket=bucket, Key = file_name3)
-team_names = pd.read_csv(io.BytesIO(obj['Body'].read())).split(',')
+seeds = pd.read_csv(io.BytesIO(obj['Body'].read()))
 #seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
 #regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
 #last two files
-#team_names = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Teams.csv")
-file_name4 = "static/app/csvs/kaggle/regular_season_stats.csv"
-obj = s3.get_object(Bucket=bucket, Key = file_name4)
-regular_season = pd.read_csv(io.BytesIO(obj['Body'].read())).split(',')
-#regular_season = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/regular_season_stats.csv", encoding = 'latin-1')
+team_names = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Teams.csv")
+regular_season = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/regular_season_stats.csv", encoding = 'latin-1')
 
 
 # our made data sets 
@@ -35,8 +29,7 @@ outcomes_14 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/st
 outcomes_15 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1415/1415_outcomes.csv", encoding = 'latin-1')
 outcomes_16 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1516/1516_outcomes.csv", encoding = 'latin-1')
 outcomes_17 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1617/1617_outcomes.csv", encoding = 'latin-1')
-outcomes_18 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1718/1718_outcomes.csv", encoding = 'latin-1')
-outcomes = [outcomes_14, outcomes_15, outcomes_16, outcomes_17, outcomes_18]
+outcomes = [outcomes_14, outcomes_15, outcomes_16, outcomes_17]
 
 
 pd.set_option('display.max_rows',1755)
@@ -44,7 +37,6 @@ pd.set_option('display.max_rows',1755)
 # adjust data sets to only 2014 and later
 seeds = seeds[seeds.Season > 2013]
 
-# Adds the column TeamName to the seeds dataframe
 names = []
 for team in seeds.TeamID:
     names.append(team_names['TeamName'][team_names['TeamID'] == team].values[0])
@@ -106,13 +98,13 @@ def get_actual_results(season):
     for round_num in range(0, 6):
         num_teams = 2 ** (5 - round_num)
         for i in range(num_teams):
-            actual_results[round_num].append(season_outcome.iloc[0:num_teams, round_num + 1].values[i])
+            actual_results[round_num].append(get_name(season_outcome.iloc[0:num_teams, round_num + 1].values[i], season))
     return actual_results
 
 def get_tourney_order(season):
     tourney_order = []
     for x in seeds1:
-        tourney_order.append(x)
+        tourney_order.append(get_name(x,season))
     return tourney_order
 
 # returns results from tournament given a set of indicators
@@ -137,7 +129,7 @@ def get_tourney_results(season, indicators, weights):
             winner, loser, which = prediction(team1, team2, indicators, season,weights)
             next_round.append(next_round[i + which])
 
-            tourney_results[round_num].append(get_name(winner, season))
+            tourney_results[round_num].append(get_name(winner,season))
 
         del next_round[0:num_teams]
 
@@ -157,4 +149,3 @@ def get_points(tourney_results, actual_results):
                 points += round_num + 1
                 games_correct += 1
     return points, games_correct
-
