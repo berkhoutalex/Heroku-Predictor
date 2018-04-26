@@ -96,7 +96,7 @@ def bracket(request): #bracket page request
 
     for i in 'scores_' + str(year_Val):
         if points > i[0]:
-            i[0]=[points, indicators, weights]
+            i=[points, indicators, weights]
             s3 = boto3.resource('s3')
             bucket = 'predictorbucket' 
             file_name = "static/app/content/Score_" + yearVal + ".txt"
