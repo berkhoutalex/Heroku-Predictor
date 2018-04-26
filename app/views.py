@@ -71,7 +71,8 @@ def bracket(request): #bracket page request
 
     listResults = generate_bracket.get_tourney_results(year, indicators, weights)
     listOrder = generate_bracket.get_tourney_order(year)
-
+    print(listResults)
+    printList(order)
     actual_results = generate_bracket.get_actual_results(year)
     points = generate_bracket.get_points(listResults, actual_results)
     percentage = points[1] * 100 / 63
