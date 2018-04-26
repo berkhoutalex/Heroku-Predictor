@@ -101,7 +101,7 @@ def bracket(request): #bracket page request
 
     for i in range(len(listResults)):
         for j in range(len(listResults[i])):
-            results_with_names.append(generate_bracket.get_name(listResults[i], year_Val))
+            results_with_names.append(generate_bracket.get_name(listResults[i][j], year_Val))
 
     for i in listOrder:
         order_with_name.append(generate_bracket.get_name(i, year_Val))
