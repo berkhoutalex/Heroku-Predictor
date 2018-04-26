@@ -96,6 +96,16 @@ def bracket(request): #bracket page request
     else:
         colors.append(red)
 
+    results_with_names = []
+    order_with_name = []
+
+    for i in range(len(listResults)):
+        for j in range(len(listResults[i])):
+            results_with_names.append(generate_bracket.get_name(i, year_Val))
+
+    for i in listOrder:
+        order_with_name.append(generate_bracket.get_name(i, year_Val))
+
  #   for i in 'scores_' + str(year_Val):
  #       if points > i[0]:
  #           i=[points, indicators, weights]
@@ -111,8 +121,8 @@ def bracket(request): #bracket page request
         request,
         'html/bracket.html',
         {
-            'round1':listOrder,
-            'roundOthers':listResults,
+            'round1':order_with_name,
+            'roundOthers':results_with_names,
             'loser':loser,
             'points':points[0],
             'games_correct':points[1],
