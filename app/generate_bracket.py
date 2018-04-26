@@ -98,7 +98,7 @@ def get_actual_results(season):
     for round_num in range(0, 6):
         num_teams = 2 ** (5 - round_num)
         for i in range(num_teams):
-            actual_results[round_num].append(get_name(season_outcome.iloc[0:num_teams, round_num + 1].values[i], season))
+            actual_results[round_num].append(season_outcome.iloc[0:num_teams, round_num + 1].values[i])
     return actual_results
 
 def get_tourney_order(season):
@@ -129,7 +129,7 @@ def get_tourney_results(season, indicators, weights):
             winner, loser, which = prediction(team1, team2, indicators, season,weights)
             next_round.append(next_round[i + which])
 
-            tourney_results[round_num].append(get_name(winner,season))
+            tourney_results[round_num].append(winner,)
 
         del next_round[0:num_teams]
 
