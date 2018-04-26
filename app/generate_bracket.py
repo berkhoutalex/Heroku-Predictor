@@ -16,17 +16,17 @@ obj = s3.get_object(Bucket=bucket, Key = file_name)
 regions = pd.read_csv(io.BytesIO(obj['Body'].read()))
 file_name2 = "static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv"
 obj = s3.get_object(Bucket=bucket, Key = file_name2)
-seeds = pd.read_csv(io.BytesIO(obj['Body'].read()))
+seeds = pd.read_csv(io.BytesIO(obj['Body'].read())).split(',')
 file_name3 = "static/app/csvs/kaggle/predictive/Teams.csv"
 obj = s3.get_object(Bucket=bucket, Key = file_name3)
-team_names = pd.read_csv(io.BytesIO(obj['Body'].read()))
+team_names = pd.read_csv(io.BytesIO(obj['Body'].read())).split(',')
 #seeds = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/NCAATourneySeeds.csv")
 #regions = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Seasons.csv")
 #last two files
 #team_names = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/predictive/Teams.csv")
 file_name4 = "static/app/csvs/kaggle/regular_season_stats.csv"
 obj = s3.get_object(Bucket=bucket, Key = file_name4)
-regular_season = pd.read_csv(io.BytesIO(obj['Body'].read()))
+regular_season = pd.read_csv(io.BytesIO(obj['Body'].read())).split(',')
 #regular_season = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/kaggle/regular_season_stats.csv", encoding = 'latin-1')
 
 
