@@ -77,23 +77,30 @@ def bracket(request): #bracket page request
     percentage = points[1] * 100 / 63
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
+        loser_no_name = predicted_results_no_names[4][0]
         actual_loser = actual_results[4][0]
     else:
         loser = listResults[4][1]
+        loser_no_name = predicted_results_no_names[4][1]
         actual_loser = actual_results[4][1]
     green = "#008000"
     red = "#ff0000"
     colors = []
+    finalcolors = []
+    if actual_loser == loser_no_name:
+        finalcolors.append(green)
+    else:
+        finalcolors.append(red)
+    if predicted_results_no_names[5][0]==actual_results[5][0]:
+        finalcolors.append(green)
+    else:
+        finalcolors.append(red)
     for i in range(len(actual_results)):
         for j in range(len(actual_results[i])):
             if actual_results[i][j] == predicted_results_no_names[i][j] :
                 colors.append(green)
             else:
                 colors.append(red)
-    if actual_loser == loser:
-        colors.append(green)
-    else:
-        colors.append(red)
 
  #   for i in 'scores_' + str(year_Val):
  #       if points > i[0]:
@@ -116,7 +123,8 @@ def bracket(request): #bracket page request
             'points':points[0],
             'games_correct':points[1],
             'percent_right':percentage,
-            'colors':colors
+            'colors':colors,
+            'finalcolors':finalcolors
         }
     )
 
