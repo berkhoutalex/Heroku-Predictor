@@ -50,6 +50,7 @@ def get_name(team, season):
 
 # returns team ID based on seed number in tournament
 def get_teamID(team, season):
+    print("%s",seeds['TeamID'][(seeds['Seed'] == team))
     return seeds['TeamID'][(seeds['Seed'] == team)
            & (seeds['Season'] == season)].values[0]  
 
