@@ -29,7 +29,8 @@ outcomes_14 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/st
 outcomes_15 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1415/1415_outcomes.csv", encoding = 'latin-1')
 outcomes_16 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1516/1516_outcomes.csv", encoding = 'latin-1')
 outcomes_17 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1617/1617_outcomes.csv", encoding = 'latin-1')
-outcomes = [outcomes_14, outcomes_15, outcomes_16, outcomes_17]
+outcomes_18 = pd.read_csv("https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/csvs/1718/1718_outcomes.csv", encoding = 'latin-1')
+outcomes = [outcomes_14, outcomes_15, outcomes_16, outcomes_17, outcomes_18]
 
 
 pd.set_option('display.max_rows',1755)
@@ -66,7 +67,6 @@ def prediction(team1, team2, indicators, season, weights):
     print(t1)
     t2 = get_teamID(team2, season)
     print(t2)
-    
     t1_stats, t2_stats, t1_weighted, t2_weighted = [], [], 0, 0 
     
     
