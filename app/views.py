@@ -50,17 +50,19 @@ def home(request): #home page request
 
 
 def bracket(request): #bracket page request
-    #inp_value = request.GET.getlist('selectInd', 'W')
+    # get year from dropdown
     year_Val = request.GET.get('yearSelect','This is a default value')
+
+    # list of all indicators used in loop below
     all_indicators = ['G','W','L','Eff','FGM','FG%','eFG%','FGA','FGM3','FG3%',
                       'FGA3','FTM','FT%','FTA','OR','ORB%','DR','DRB%','Ast','TO',
                       'TOV%','Stl','Blk','PF','OFGM','OFGA','OFG%','OeFG%','OFGM3',
                       'OFGA3','OFG3%','OFTM','OFTA','OFT%','OOR','OORB%','ODR',
-                      'ODRB%','OAst','OTO','OTOV%','OStl','OBlk','OPF']
-                
-    # get checkbox values
+                      'ODRB%','OAst','OTO','OTOV%','OStl','OBlk','OPF']      
     indicators = []
     weights = []
+
+    # get list of selected indicators and their weights
     for i in range(1, len(all_indicators)+1):
         indicator = request.GET.get('i' + str(i), 'off')
         if (indicator == 'on'):
@@ -69,12 +71,16 @@ def bracket(request): #bracket page request
             indicators.append(all_indicators[i - 1])
     year = int(year_Val)
 
+    # get tourney actual predicted results and points from generate_bracket.py
     listResults = generate_bracket.get_tourney_results(year, indicators, weights)
     listOrder = generate_bracket.get_tourney_order(year)
     predicted_results_no_names = generate_bracket.get_tourney_results_no_names(year, indicators, weights)
     actual_results = generate_bracket.get_actual_results(year)
+    
     points = generate_bracket.get_points(predicted_results_no_names, actual_results)
     percentage = points[1] * 100 / 63
+
+    # get loser of final game
     if listResults[5][0] == listResults[4][1]:
         loser = listResults[4][0]
         loser_no_name = predicted_results_no_names[4][0]
@@ -83,7 +89,11 @@ def bracket(request): #bracket page request
         loser = listResults[4][1]
         loser_no_name = predicted_results_no_names[4][1]
         actual_loser = actual_results[4][1]
-    green = "#008000"
+
+    # get list of colors to color the team names
+    # green means you predicted correctly
+    # red means you predicted incorrectly
+    green = "#0aaa0a"
     red = "#ff0000"
     colors = []
     finalcolors = []
@@ -91,20 +101,30 @@ def bracket(request): #bracket page request
         finalcolors.append(green)
     else:
         finalcolors.append(red)
+
     if predicted_results_no_names[5][0]==actual_results[5][0]:
         finalcolors.append(green)
     else:
         finalcolors.append(red)
+
     for i in range(len(actual_results)):
         for j in range(len(actual_results[i])):
             if actual_results[i][j] == predicted_results_no_names[i][j] :
                 colors.append(green)
             else:
                 colors.append(red)
+
+    percentages = weights / sum(weights)
+    formula_string = ""
+    for i in range(len(indicators)):
+        formula_string += str(indicators[i]) + " * " + str(percentages[i]) + " + "
+    formula_string = formula_string[:-3]
+
     output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
+
     for i in 'scores_' + str(year_Val):
         if points > i[0]:
-            i=[points, indicators, weights]
+            i = [points, indicators, weights]
             s3 = boto3.resource('s3')
             bucket = 'predictorbucket' 
             file_name = "static/app/content/Score_" + year_Val + ".txt"
@@ -126,6 +146,7 @@ def bracket(request): #bracket page request
             'percent_right':percentage,
             'colors':colors,
             'finalcolors':finalcolors
+            'formula_string':formula_string
         }
     )
 
