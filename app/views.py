@@ -109,7 +109,8 @@ def bracket(request): #bracket page request
             bucket = 'predictorbucket' 
             file_name = "static/app/content/Score_" + year_Val + ".txt"
             object = s3.Object(bucket, file_name)
-            object.put(Body=points + " " + ','.join(indicators) + " " + ','.join(weights))
+            object.put(Body=points+indicators+weights)
+
             break
 
         
