@@ -54,7 +54,7 @@ def bracket(request): #bracket page request
     year_Val = request.GET.get('yearSelect','This is a default value')
 
     # list of all indicators used in loop below
-    all_indicators = ['G','W','L','Eff','FGM','FG%','eFG%','FGA','FGM3','FG3%',
+    all_indicators = ['Seed','G','W','L','Eff','FGM','FG%','eFG%','FGA','FGM3','FG3%',
                       'FGA3','FTM','FT%','FTA','OR','ORB%','DR','DRB%','Ast','TO',
                       'TOV%','Stl','Blk','PF','OFGM','OFGA','OFG%','OeFG%','OFGM3',
                       'OFGA3','OFG3%','OFTM','OFTA','OFT%','OOR','OORB%','ODR',
@@ -63,12 +63,12 @@ def bracket(request): #bracket page request
     weights = []
 
     # get list of selected indicators and their weights
-    for i in range(1, len(all_indicators)+1):
+    for i in range(0, len(all_indicators)):
         indicator = request.GET.get('i' + str(i), 'off')
         if (indicator == 'on'):
             weight = int(request.GET.get('w' + str(i), '50'))
             weights.append(weight)
-            indicators.append(all_indicators[i - 1])
+            indicators.append(all_indicators[i])
     year = int(year_Val)
 
     # get tourney actual predicted results and points from generate_bracket.py
