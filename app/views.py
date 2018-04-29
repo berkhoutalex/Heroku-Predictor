@@ -145,7 +145,7 @@ def bracket(request): #bracket page request
             'games_correct':points[1],
             'percent_right':percentage,
             'colors':colors,
-            'finalcolors':finalcolors
+            'finalcolors':finalcolors,
             'formula_string':formula_string
         }
     )
