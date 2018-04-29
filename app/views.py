@@ -101,7 +101,7 @@ def bracket(request): #bracket page request
                 colors.append(green)
             else:
                 colors.append(red)
-    output_string = points + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
+    output_string = str(points) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
     for i in 'scores_' + str(year_Val):
         if points > i[0]:
             i=[points, indicators, weights]
