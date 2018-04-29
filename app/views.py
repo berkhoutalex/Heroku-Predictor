@@ -114,7 +114,7 @@ def bracket(request): #bracket page request
             else:
                 colors.append(red)
 
-    percentages = [weight / sum(weights) for weight in weights]
+    percentages = [1.0 * weight / sum(weights) for weight in weights]
     formula_string = ""
     for i in range(len(indicators)):
         formula_string += str(indicators[i]) + " * " + str(percentages[i]) + " + "
