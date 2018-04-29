@@ -101,7 +101,7 @@ def bracket(request): #bracket page request
                 colors.append(green)
             else:
                 colors.append(red)
-
+    output_string = points + ' ' + ' '.join(indicators) + ' ' + ' '.join(weights)
     for i in 'scores_' + str(year_Val):
         if points > i[0]:
             i=[points, indicators, weights]
@@ -109,7 +109,7 @@ def bracket(request): #bracket page request
             bucket = 'predictorbucket' 
             file_name = "static/app/content/Score_" + year_Val + ".txt"
             object = s3.Object(bucket, file_name)
-            object.put(Body=points+indicators+weights)
+            object.put(Body=output_string)
 
             break
 
