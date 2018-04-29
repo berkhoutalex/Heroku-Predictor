@@ -122,8 +122,6 @@ def bracket(request): #bracket page request
             percent = '{:.3f}'.format(percentages[i])
         else:
             percent = '{:.2f}'.format(percentages[i])
-        if len(formula_string) > 100:
-            formula_string += "<br>"
         formula_string += str(indicators[i]) + " * " + percent + " + "
     formula_string = formula_string[:-3]
 
