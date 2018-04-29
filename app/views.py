@@ -117,7 +117,11 @@ def bracket(request): #bracket page request
     percentages = [1.0 * weight / sum(weights) for weight in weights]
     formula_string = ""
     for i in range(len(indicators)):
-        formula_string += str(indicators[i]) + " * " + str(percentages[i]) + " + "
+        if percentages[i] < 0.01:
+            percent = '{:.3f}'.format(percentages[i])
+        else:
+            percent = '{:.2f}'.format(percentages[i])
+        formula_string += str(indicators[i]) + " * " + percent + " + "
     formula_string = formula_string[:-3]
 
     output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
