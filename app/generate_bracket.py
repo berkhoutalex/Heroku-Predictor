@@ -85,7 +85,7 @@ def prediction(team1, team2, indicators, season, weights):
         t1_weighted += weights[i] * t1_stats[i]
         t2_weighted += weights[i] * t2_stats[i]
     
-    if t1_weighted > t2_weighted:
+    if t1_weighted >= t2_weighted:
         return team1, team2, 0
     else:
         return team2, team1, 1
