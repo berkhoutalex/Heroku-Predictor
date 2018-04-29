@@ -114,6 +114,7 @@ def bracket(request): #bracket page request
             else:
                 colors.append(red)
 
+    # get string for formula
     percentages = [1.0 * weight / sum(weights) for weight in weights]
     formula_string = ""
     for i in range(len(indicators)):
@@ -121,6 +122,8 @@ def bracket(request): #bracket page request
             percent = '{:.3f}'.format(percentages[i])
         else:
             percent = '{:.2f}'.format(percentages[i])
+        if len(formula_string) > 80:
+            formula_string += "\n"
         formula_string += str(indicators[i]) + " * " + percent + " + "
     formula_string = formula_string[:-3]
 
