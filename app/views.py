@@ -193,7 +193,6 @@ def bracket(request): #bracket page request
             for i in scores_18:
                 tempScore = scores_18[index].split();
                 if int(points[0]) > int(tempScore[0]):
-                    print("succeed")
                     scores_18[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
