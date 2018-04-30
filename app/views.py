@@ -24,7 +24,7 @@ scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/ap
 
 url2014 = urllib.urlopen(scores_2014_file)
 scores_14 = sorted(url2014.read().split("|"))
-score_14.reverse()
+scores_14.reverse()
 url2015 = urllib.urlopen(scores_2015_file)
 scores_15 = sorted(url2015.read().split("|"))
 score_15.reverse()
