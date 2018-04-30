@@ -126,13 +126,12 @@ def bracket(request): #bracket page request
 
     output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
     
-    
-
     if year_Val == 2014:
             index = 0
             for i in scores_14:
                 tempScore = scores_14[index].split();
                 if int(points[0]) > int(tempScore[0]):
+
                     scores_14[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -145,12 +144,12 @@ def bracket(request): #bracket page request
                     break
                 index = index + 1
 
-    
     elif year_Val == 2015:
             index = 0
             for i in scores_15:
                 tempScore = scores_15[index].split();
                 if int(points[0]) > int(tempScore[0]):
+                    print("15")
                     scores_15[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -164,6 +163,7 @@ def bracket(request): #bracket page request
     elif year_Val == 2016:
             index = 0
             for i in scores_16:
+                    print("16")
                     tempScore = scores_16[index].split();
                     if int(points[0]) > int(tempScore[0]):
                         scores_16[index]=output_string
@@ -179,6 +179,7 @@ def bracket(request): #bracket page request
     elif year_Val == 2017:
             index = 0
             for i in scores_17:
+                print("17")
                 tempScore = scores_17[index].split();
                 if int(points[0]) > int(tempScore[0]):
                     scores_17[index]=output_string
