@@ -124,7 +124,7 @@ def bracket(request): #bracket page request
         formula_string += str(indicators[i]) + " * " + percent + " + "
     formula_string = formula_string[:-3]
 
-    output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights) + "|"
+    output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
     
     
 
