@@ -125,8 +125,8 @@ def bracket(request): #bracket page request
     formula_string = formula_string[:-3]
 
     output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
-    
-    if year_Val == 2014:
+    print(year_Val)
+    if int(year_Val) == 2014:
             index = 0
             for i in scores_14:
                 tempScore = scores_14[index].split();
@@ -144,7 +144,7 @@ def bracket(request): #bracket page request
                     break
                 index = index + 1
 
-    elif year_Val == 2015:
+    elif int(year_Val) == 2015:
             index = 0
             for i in scores_15:
                 tempScore = scores_15[index].split();
@@ -160,7 +160,7 @@ def bracket(request): #bracket page request
                     object.put(Body=output)
                     break
                 index = index + 1
-    elif year_Val == 2016:
+    elif int(year_Val) == 2016:
             index = 0
             for i in scores_16:
                     print("16")
@@ -176,7 +176,7 @@ def bracket(request): #bracket page request
                         object.put(Body=output)
                         break
                     index = index + 1
-    elif year_Val == 2017:
+    elif int(year_Val) == 2017:
             index = 0
             for i in scores_17:
                 print("17")
