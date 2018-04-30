@@ -22,17 +22,17 @@ scores_2017_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/ap
 scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2018.txt"
 
 url2013 = urllib.urlopen(scores_2013_file)
-scores_13 = url2013.read().split()
+scores_13 = url2013.read().split("|").sort().reverse()
 url2014 = urllib.urlopen(scores_2013_file)
-scores_14 = url2014.read().split()
+scores_14 = url2014.read().split("|").sort().reverse()
 url2015 = urllib.urlopen(scores_2013_file)
-scores_15 = url2015.read().split()
+scores_15 = url2015.read().split("|").sort().reverse()
 url2016 = urllib.urlopen(scores_2013_file)
-scores_16 = url2016.read().split()
+scores_16 = url2016.read().split("|").sort().reverse()
 url2017 = urllib.urlopen(scores_2013_file)
-scores_17 = url2017.read().split()
+scores_17 = url2017.read().split("|").sort.reverse()
 url2018 = urllib.urlopen(scores_2013_file)
-scores_18 = url2018.read().split()
+scores_18 = url2018.read().split("|").sort.reverse()
 
 
 
@@ -125,19 +125,17 @@ def bracket(request): #bracket page request
         formula_string += str(indicators[i]) + " * " + percent + " + "
     formula_string = formula_string[:-3]
 
-    output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
+    output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights) + "|"
 
     for i in 'scores_' + str(year_Val):
-        if points > i[0]:
-            i = [points, indicators, weights]
-            s3 = boto3.resource('s3')
-            bucket = 'predictorbucket' 
-            file_name = "static/app/content/Score_" + year_Val + ".txt"
-            object = s3.Object(bucket, file_name)
-            object.put(Body=output_string)
-
+        if points > i:
+            i[4] = [points, indicators, weights]
             break
-
+    s3 = boto3.resource('s3')
+    bucket = 'predictorbucket' 
+    file_name = "static/app/content/Score_" + year_Val + ".txt"
+    object = s3.Object(bucket, file_name)
+    object.put(Body=' | '.join('scores_' + str(year_Val)))
         
     return render(
         request,
