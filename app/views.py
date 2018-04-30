@@ -139,7 +139,7 @@ def bracket(request): #bracket page request
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     output = '|'.join(scores_14)
-                    object.put(body=output)
+                    object.put(Body=output)
                     break
                 index = index + 1
 
@@ -155,7 +155,7 @@ def bracket(request): #bracket page request
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     output = '|'.join(scores_15)
-                    object.put(body=output)
+                    object.put(Body=output)
                     break
                 index = index + 1
     elif year_Val == 2016:
@@ -169,7 +169,7 @@ def bracket(request): #bracket page request
                         file_name = "static/app/content/Score_" + year_Val + ".txt"
                         object = s3.Object(bucket, file_name)
                         output ='|'.join(scores_16)
-                        object.put(body=output)
+                        object.put(Body=output)
                         break
                     index = index + 1
     elif year_Val == 2017:
@@ -183,7 +183,7 @@ def bracket(request): #bracket page request
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     output ='|'.join(scores_17)
-                    object.put(body=output)
+                    object.put(Body=output)
                     break
                 index = index + 1
     else:
@@ -197,7 +197,7 @@ def bracket(request): #bracket page request
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     output = '|'.join(scores_18)
-                    object.put(body=output)
+                    object.put(Body=output)
                     break
                 index = index + 1
 
