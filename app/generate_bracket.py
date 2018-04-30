@@ -64,9 +64,7 @@ def get_stat(team, season, indicator):
 # makes a prediction on who will win given set of indicators and weights
 def prediction(team1, team2, indicators, season, weights):
     t1 = get_teamID(team1, season)
-    print(t1)
     t2 = get_teamID(team2, season)
-    print(t2)
     t1_stats, t2_stats, t1_weighted, t2_weighted = [], [], 0, 0 
     
     
