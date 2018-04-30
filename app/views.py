@@ -180,7 +180,6 @@ def bracket(request): #bracket page request
             for i in scores_17:
                 tempScore = scores_17[index].split();
                 if int(points[0]) > int(tempScore[0]):
-                    print(output_string)
                     scores_17[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -188,7 +187,6 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     scores_17.sort()
                     output ='|'.join(scores_17)
-                    print(output)
                     object.put(Body=output)
                     break
                 index = index + 1
