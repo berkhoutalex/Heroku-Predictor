@@ -22,17 +22,23 @@ scores_2017_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/ap
 scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/Score_2018.txt"
 
 url2013 = urllib.urlopen(scores_2013_file)
-scores_13 = url2013.read().split("|").sort().reverse()
-url2014 = urllib.urlopen(scores_2013_file)
+scores_13 = url2013.read().split("|").sort()
+score_13 = list.reverse(scores_13)
+url2014 = urllib.urlopen(scores_2014_file)
 scores_14 = url2014.read().split("|").sort().reverse()
-url2015 = urllib.urlopen(scores_2013_file)
+score_14 = list.reverse(scores_14)
+url2015 = urllib.urlopen(scores_2015_file)
 scores_15 = url2015.read().split("|").sort().reverse()
-url2016 = urllib.urlopen(scores_2013_file)
+score_15 = list.reverse(scores_15)
+url2016 = urllib.urlopen(scores_2016_file)
 scores_16 = url2016.read().split("|").sort().reverse()
-url2017 = urllib.urlopen(scores_2013_file)
+score_16 = list.reverse(scores_16)
+url2017 = urllib.urlopen(scores_2017_file)
 scores_17 = url2017.read().split("|").sort.reverse()
-url2018 = urllib.urlopen(scores_2013_file)
+score_17 = list.reverse(scores_17)
+url2018 = urllib.urlopen(scores_2018_file)
 scores_18 = url2018.read().split("|").sort.reverse()
+score_18 = list.reverse(scores_18)
 
 
 
