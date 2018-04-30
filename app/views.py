@@ -125,6 +125,7 @@ def bracket(request): #bracket page request
     formula_string = formula_string[:-3]
 
     output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
+
     if int(year_Val) == 2014:
             index = 0
             for i in scores_14:
@@ -148,7 +149,6 @@ def bracket(request): #bracket page request
             for i in scores_15:
                 tempScore = scores_15[index].split();
                 if int(points[0]) > int(tempScore[0]):
-                    
                     scores_15[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -180,7 +180,7 @@ def bracket(request): #bracket page request
             for i in scores_17:
                 tempScore = scores_17[index].split();
                 if int(points[0]) > int(tempScore[0]):
-                    print("succeed")
+                    print(output_string)
                     scores_17[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -188,6 +188,7 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     scores_17.sort()
                     output ='|'.join(scores_17)
+                    print(output)
                     object.put(Body=output)
                     break
                 index = index + 1
