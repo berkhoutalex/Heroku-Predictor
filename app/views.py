@@ -125,64 +125,76 @@ def bracket(request): #bracket page request
     formula_string = formula_string[:-3]
 
     output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights) + "|"
-
+    
+    
 
     if year_Val == 2014:
+            index = 0
             for i in scores_14:
-                tempScore = scores_14[i].split();
+                tempScore = scores_14[index].split();
                 if points > tempScore[0]:
-                    scores_14[i]=output_string
+                    scores_14[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     object.put(body=' | '.join(scores_14))
                     break
+                index = index + 1
 
+    
     elif year_Val == 2015:
+            index = 0
             for i in scores_15:
-                tempScore = scores_15[i].split();
+                tempScore = scores_15[index].split();
                 if points > tempScore[0]:
-                    scores_15[i]=output_string
+                    scores_15[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     object.put(body='|'.join(scores_15))
                     break
+                index = index + 1
     elif year_Val == 2016:
+            index = 0
             for i in scores_16:
-                    tempScore = scores_16[i].split();
+                    tempScore = scores_16[index].split();
                     if points > tempScore[0]:
-                        scores_16[i]=output_string
+                        scores_16[index]=output_string
                         s3 = boto3.resource('s3')
                         bucket = 'predictorbucket' 
                         file_name = "static/app/content/Score_" + year_Val + ".txt"
                         object = s3.Object(bucket, file_name)
                         object.put(body='|'.join(scores_16))
                         break
+                    index = index + 1
     elif year_Val == 2017:
+            index = 0
             for i in scores_17:
-                tempScore = scores_17[i].split();
+                tempScore = scores_17[index].split();
                 if points > tempScore[0]:
-                    scores_17[i]=output_string
+                    scores_17[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     object.put(body='|'.join(scores_17))
                     break
+                index = index + 1
     else:
+            index = 0
             for i in scores_18:
-                tempScore = scores_18[i].split();
+                tempScore = scores_18[index].split();
                 if points > tempScore[0]:
-                    scores_18[i]=output_string
+                    scores_18[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     object.put(body='|'.join(scores_18))
                     break
+                index = index + 1
 
 
         
