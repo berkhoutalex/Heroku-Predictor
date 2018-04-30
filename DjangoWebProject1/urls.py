@@ -3,7 +3,6 @@ Definition of urls for DjangoWebProject1.
 """
 
 from datetime import datetime
-from app.views import highscore
 from app import views
 from django.conf.urls import url
 import django.contrib.auth.views

@@ -158,6 +158,7 @@
     <Content Include="app\templates\html\bracket.less" />
     <Content Include="app\templates\html\index.html" />
     <Content Include="app\templates\html\bracket.html" />
+    <Content Include="app\templates\html\highscore.html" />
     <Content Include="code\.ipynb_checkpoints\csv_generator-checkpoint.ipynb" />
     <Content Include="code\.ipynb_checkpoints\kaggle_predictor-checkpoint.ipynb" />
     <Content Include="code\.ipynb_checkpoints\Random Bracket Generator-checkpoint.ipynb" />

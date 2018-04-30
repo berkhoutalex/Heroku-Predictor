@@ -225,8 +225,7 @@ def bracket(request): #bracket page request
     )
 
     
-    def highscore(request): #high score page request
-        """Renders the high score page."""
+def highscore(request): #high score page request
     score14 = []
     score15 = []
     score16 = []
@@ -242,10 +241,10 @@ def bracket(request): #bracket page request
         score17.append(score.split())
     for score in scores_18:
         score18.append(score.split())
-        assert isinstance(request, HttpRequest)
-        return render(
-            request,
-            'html/highscore.html',
+
+    return render(
+        request,
+        'html/highscore.html',
         {
             'score14' : scores_14,
             'score15' : scores_15,
