@@ -23,15 +23,20 @@ scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/ap
 
 
 url2014 = urllib.urlopen(scores_2014_file)
-scores_14 = list.reverse(sorted(url2014.read().split("|")))
+scores_14 = sorted(url2014.read().split("|"))
+score_14.reverse()
 url2015 = urllib.urlopen(scores_2015_file)
-scores_15 = list.reverse(sorted(url2015.read().split("|")))
+scores_15 = sorted(url2015.read().split("|"))
+score_15.reverse()
 url2016 = urllib.urlopen(scores_2016_file)
-scores_16 = list.reverse(sorted(url2016.read().split("|")))
+scores_16 = sorted(url2016.read().split("|"))
+score_16.reverse()
 url2017 = urllib.urlopen(scores_2017_file)
-scores_17 = list.reverse(sorted(url2017.read().split("|")))
+scores_17 = sorted(url2017.read().split("|"))
+score_17.reverse()
 url2018 = urllib.urlopen(scores_2018_file)
-scores_18 = list.reverse(sorted(url2018.read().split("|")))
+scores_18 = sorted(url2018.read().split("|"))
+score_18.reverse()
 
 
 
@@ -124,7 +129,7 @@ def bracket(request): #bracket page request
         formula_string += str(indicators[i]) + " * " + percent + " + "
     formula_string = formula_string[:-3]
 
-    output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights)
+    output_string = str(points[0]) + " " + ','.join(str(x) for x in indicators)+ " " + ','.join(str(x) for x in weights) + "|"
     
     
 
