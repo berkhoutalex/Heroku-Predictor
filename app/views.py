@@ -23,22 +23,16 @@ scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/ap
 
 url2013 = urllib.urlopen(scores_2013_file)
 scores_13 = url2013.read().split("|")
-score_13 = list.reverse(list.sort(scores_13))
 url2014 = urllib.urlopen(scores_2014_file)
 scores_14 = url2014.read().split("|")
-score_14 = list.reverse(list.sort(scores_14))
 url2015 = urllib.urlopen(scores_2015_file)
 scores_15 = url2015.read().split("|")
-score_15 = list.reverse(list.sort(scores_15))
 url2016 = urllib.urlopen(scores_2016_file)
 scores_16 = url2016.read().split("|")
-score_16 = list.reverse(list.sort(scores_16))
 url2017 = urllib.urlopen(scores_2017_file)
 scores_17 = url2017.read().split("|")
-score_17 = list.reverse(list.sort(scores_17))
 url2018 = urllib.urlopen(scores_2018_file)
 scores_18 = url2018.read().split("|")
-score_18 = list.reverse(list.sort(scores_18))
 
 
 
@@ -135,7 +129,7 @@ def bracket(request): #bracket page request
 
     for i in 'scores_' + str(year_Val):
         if points > i:
-            i[4] = [points, indicators, weights]
+            i = output_string
             break
     s3 = boto3.resource('s3')
     bucket = 'predictorbucket' 
