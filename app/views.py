@@ -192,8 +192,8 @@ def bracket(request): #bracket page request
             index = 0
             for i in scores_18:
                 print(points[0])
-                print(tempScore[0])
                 tempScore = scores_18[index].split();
+                print(tempScore[0])
                 if points[0] > tempScore[0]:
                     scores_18[index]=output_string
                     s3 = boto3.resource('s3')
