@@ -32,8 +32,6 @@ url2017 = urllib.urlopen(scores_2017_file)
 scores_17 = sorted(url2017.read().split("|"))
 url2018 = urllib.urlopen(scores_2018_file)
 scores_18 = sorted(url2018.read().split("|"))
-print(scores_18[0])
-print(scores_18[1])
 
 
 
@@ -142,6 +140,8 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     output = '|'.join(scores_14)
                     object.put(Body=output)
+                    url2014 = urllib.urlopen(scores_2014_file)
+                    scores_14 = sorted(url2014.read().split("|"))
                     break
                 index = index + 1
 
@@ -157,6 +157,8 @@ def bracket(request): #bracket page request
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
                     output = '|'.join(scores_15)
+                    url2015 = urllib.urlopen(scores_2015_file)
+                    scores_15 = sorted(url2015.read().split("|"))
                     object.put(Body=output)
                     break
                 index = index + 1
@@ -172,6 +174,8 @@ def bracket(request): #bracket page request
                         object = s3.Object(bucket, file_name)
                         output ='|'.join(scores_16)
                         object.put(Body=output)
+                        url2016 = urllib.urlopen(scores_2016_file)
+                        scores_16 = sorted(url2016.read().split("|"))
                         break
                     index = index + 1
     elif year_Val == 2017:
@@ -186,6 +190,8 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     output ='|'.join(scores_17)
                     object.put(Body=output)
+                    url2017 = urllib.urlopen(scores_2017_file)
+                    scores_17 = sorted(url2017.read().split("|"))
                     break
                 index = index + 1
     else:
@@ -200,6 +206,8 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     output = '|'.join(scores_18)
                     object.put(Body=output)
+                    url2018 = urllib.urlopen(scores_2018_file)
+                    scores_18 = sorted(url2018.read().split("|"))
                     break
                 index = index + 1
 
