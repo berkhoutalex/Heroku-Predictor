@@ -23,15 +23,15 @@ scores_2018_file = "https://s3.us-east-2.amazonaws.com/predictorbucket/static/ap
 
 
 url2014 = urllib.urlopen(scores_2014_file)
-scores_14 = sorted(url2014.read().split("|"))
+scores_14 = reverse(sorted(url2014.read().split("|")))
 url2015 = urllib.urlopen(scores_2015_file)
-scores_15 = sorted(url2015.read().split("|"))
+scores_15 = reverse(sorted(url2015.read().split("|")))
 url2016 = urllib.urlopen(scores_2016_file)
-scores_16 = sorted(url2016.read().split("|"))
+scores_16 = reverse(sorted(url2016.read().split("|")))
 url2017 = urllib.urlopen(scores_2017_file)
-scores_17 = sorted(url2017.read().split("|"))
+scores_17 = reverse(sorted(url2017.read().split("|")))
 url2018 = urllib.urlopen(scores_2018_file)
-scores_18 = sorted(url2018.read().split("|"))
+scores_18 = reverse(sorted(url2018.read().split("|")))
 
 
 
