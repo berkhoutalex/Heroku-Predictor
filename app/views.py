@@ -246,10 +246,10 @@ def highscore(request): #high score page request
         request,
         'html/highscore.html',
         {
-            'score14' : scores_14,
-            'score15' : scores_15,
-            'score16' : scores_16,
-            'score17' : scores_17,
-            'score18' : scores_18
+            'score14' : score14,
+            'score15' : score15,
+            'score16' : score16,
+            'score17' : score17,
+            'score18' : score18
         }
     )
