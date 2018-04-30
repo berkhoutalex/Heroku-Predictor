@@ -134,7 +134,7 @@ def bracket(request): #bracket page request
             index = 0
             for i in scores_14:
                 tempScore = scores_14[index].split();
-                if points[0] > tempScore[0]:
+                if int(points[0]) > int(tempScore[0]):
                     scores_14[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -150,7 +150,7 @@ def bracket(request): #bracket page request
             index = 0
             for i in scores_15:
                 tempScore = scores_15[index].split();
-                if points[0] > tempScore[0]:
+                if int(points[0]) > int(tempScore[0]):
                     scores_15[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -164,7 +164,7 @@ def bracket(request): #bracket page request
             index = 0
             for i in scores_16:
                     tempScore = scores_16[index].split();
-                    if points[0] > tempScore[0]:
+                    if int(points[0]) > int(tempScore[0]):
                         scores_16[index]=output_string
                         s3 = boto3.resource('s3')
                         bucket = 'predictorbucket' 
@@ -178,7 +178,7 @@ def bracket(request): #bracket page request
             index = 0
             for i in scores_17:
                 tempScore = scores_17[index].split();
-                if points[0] > tempScore[0]:
+                if int(points[0]) > int(tempScore[0]):
                     scores_17[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
@@ -191,10 +191,9 @@ def bracket(request): #bracket page request
     else:
             index = 0
             for i in scores_18:
-                print(points[0])
                 tempScore = scores_18[index].split();
-                print(tempScore[0])
-                if points[0] > tempScore[0]:
+                if int(points[0]) > int(tempScore[0]):
+                    print("succeed")
                     scores_18[index]=output_string
                     s3 = boto3.resource('s3')
                     bucket = 'predictorbucket' 
