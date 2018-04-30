@@ -3,6 +3,8 @@ Definition of urls for DjangoWebProject1.
 """
 
 from datetime import datetime
+from app.views import highscore
+from app import views
 from django.conf.urls import url
 import django.contrib.auth.views
 
@@ -17,7 +19,8 @@ import app.views
 urlpatterns = [
     # Examples:
     url(r'^$', app.views.home, name='home'),
-    url(r'bracket', app.views.bracket, name='bracket')
+    url(r'bracket', app.views.bracket, name='bracket'),
+    url(r'highscore', app.views.highscore, name='highscore')
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

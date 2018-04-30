@@ -224,17 +224,33 @@ def bracket(request): #bracket page request
         }
     )
 
-
-# def bracket(request):
-#    listResults = generateBracket.get_tourney_results(2015, ['OPF'])
-#    listOrder = generateBracket.get_tourney_order(2015)
-#    """Renders the home page."""
-#    assert isinstance(request, HttpRequest)
-#    return render(
-#        request,
-#        'html/bracket.html',
-#        {
-#            'round1':listOrder,
-#            'roundOthers':listResults
-#
-#        }
+    
+    def highscore(request): #high score page request
+        """Renders the high score page."""
+    score14 = []
+    score15 = []
+    score16 = []
+    score17 = []
+    score18 = []
+    for score in scores_14:
+        score14.append(score.split())
+    for score in scores_15:
+        score15.append(score.split())
+    for score in scores_16:
+        score16.append(score.split())
+    for score in scores_17:
+        score17.append(score.split())
+    for score in scores_18:
+        score18.append(score.split())
+        assert isinstance(request, HttpRequest)
+        return render(
+            request,
+            'html/highscore.html',
+        {
+            'score14' : scores_14,
+            'score15' : scores_15,
+            'score16' : scores_16,
+            'score17' : scores_17,
+            'score18' : scores_18
+        }
+    )
