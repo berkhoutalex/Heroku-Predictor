@@ -138,7 +138,8 @@ def bracket(request): #bracket page request
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
-                    object.put(body=' | '.join(scores_14))
+                    output = '|'.join(scores_14)
+                    object.put(body=output)
                     break
                 index = index + 1
 
@@ -153,7 +154,8 @@ def bracket(request): #bracket page request
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
-                    object.put(body='|'.join(scores_15))
+                    output = '|'.join(scores_15)
+                    object.put(body=output)
                     break
                 index = index + 1
     elif year_Val == 2016:
@@ -166,7 +168,8 @@ def bracket(request): #bracket page request
                         bucket = 'predictorbucket' 
                         file_name = "static/app/content/Score_" + year_Val + ".txt"
                         object = s3.Object(bucket, file_name)
-                        object.put(body='|'.join(scores_16))
+                        output ='|'.join(scores_16)
+                        object.put(body=output)
                         break
                     index = index + 1
     elif year_Val == 2017:
@@ -179,7 +182,8 @@ def bracket(request): #bracket page request
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
-                    object.put(body='|'.join(scores_17))
+                    output ='|'.join(scores_17)
+                    object.put(body=output)
                     break
                 index = index + 1
     else:
@@ -192,7 +196,8 @@ def bracket(request): #bracket page request
                     bucket = 'predictorbucket' 
                     file_name = "static/app/content/Score_" + year_Val + ".txt"
                     object = s3.Object(bucket, file_name)
-                    object.put(body='|'.join(scores_18))
+                    output = '|'.join(scores_18)
+                    object.put(body=output)
                     break
                 index = index + 1
 
