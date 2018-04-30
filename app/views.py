@@ -232,15 +232,15 @@ def highscore(request): #high score page request
     score17 = []
     score18 = []
     for score in scores_14:
-        score14.append(score.split("\s"))
+        score14.append(score.split(" "))
     for score in scores_15:
-        score15.append(score.split("\s"))
+        score15.append(score.split(" "))
     for score in scores_16:
-        score16.append(score.split("\s"))
+        score16.append(score.split(" "))
     for score in scores_17:
-        score17.append(score.split("\s"))
+        score17.append(score.split(" "))
     for score in scores_18:
-        score18.append(score.split("\s"))
+        score18.append(score.split(" "))
 
     return render(
         request,
