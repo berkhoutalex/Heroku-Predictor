@@ -176,3 +176,17 @@ def get_points(tourney_results, actual_results):
                 points += round_num + 1
                 games_correct += 1
     return points, games_correct
+
+def get_points_espn(tourney_results, actual_results):
+    # initializes points and the amount of games correct
+    points, games_correct = 0, 0
+    round_points = [10,20,40,80,160,320]
+    
+    # calculates how many points our algorithem predicts
+    for round_num in range(0, 6):        
+        num_teams = 2 ** (5 - round_num)
+        for i in range(num_teams):
+            if tourney_results[round_num][i] == actual_results[round_num][i]:
+                points += round_points[round_num]
+                games_correct += 1
+    return points, games_correct
