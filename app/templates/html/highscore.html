@@ -5,13 +5,18 @@
 <head>
     <meta charset="utf-8" />
     <title>High Scores</title>
-</head>
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+    </script>
+    </head>
 
 <body style="font-family: 'Helvetica Neue', Helvetica, Arial, FreeSans, sans-serif;">
     <center>
 
         <h1>High Scores</h1>
-        <a href="/">Back to Home Page</a>
+        <button onclick="goBack()">Back to Home</button>
         <!-- Begin 2018 Table -->
         <h3>2018</h3>
         <table title='2014' border=1 frame=void rules=rows cellpadding=3>

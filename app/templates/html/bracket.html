@@ -5,6 +5,11 @@
   <meta name="NCAA Bracket" content="content"> {% load staticfiles %}
   <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/predictorbucket/static/app/content/bracket.css"/>
   <title>Your Bracket</title>
+  <script>
+      function goBack() {
+          window.history.back()
+      }
+  </script>
 </head>
 
 <body class="bracket standings light-blue">
@@ -780,7 +785,7 @@
     You got {{games_correct}} out of 63 games, or {{percent_right}}%!
     <br> This bracket earned {{points}} out of 120 points!
     <br>{{formula_string}}<br>
-    <a href="/">Back to Home Page</a>
+    <button onclick="goBack()">Back to Home</button>
   </center>
 </body>
 
