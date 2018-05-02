@@ -73,7 +73,7 @@ def bracket(request): #bracket page request
     # if no indicators are checked, use seed by default
     if len(indicators) == 0:
         indicators.append('Seed')
-        weight.apppend('1.0')
+        weights.apppend('1.0')
 
     # get tourney actual predicted results and points from generate_bracket.py
     listResults = generate_bracket.get_tourney_results(year, indicators, weights)
