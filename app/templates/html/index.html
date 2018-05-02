@@ -1,6 +1,11 @@
 ﻿<!doctype html>
 <html lang="en" class="no-js">
 
+<head>
+    <meta charset="utf-8" />
+    <title>NCAA Bracket Predictor</title>
+</head>
+
 <body style="font-family: 'Helvetica Neue', Helvetica, Arial, FreeSans, sans-serif;">
     <center>
         <h1>NCAA Bracket Predictor</h1>
@@ -16,7 +21,9 @@
             <!-- select multiple -->
             <input type="submit" value="Generate Bracket">
             <input type="reset" value="Reset">
-
+            <form action="highscore" method="get">
+                <input type="submit" value="View high score">
+            </form>
             <h3>Select indicators below:</h3>
             <p>Winners will be chosen based on a combination of indicators multiplied by their weights.<br>
                Opponent stats count inversely, e.g. the team with fewer points scored against them will win.</p>
@@ -301,10 +308,6 @@
                 </tr>
             </table>
         </form>
-        <form action="highscore" method="get">
-            <input type="submit" value="View high score">
-        </form>
-
         <center>
 </body>
 
