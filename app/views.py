@@ -195,7 +195,7 @@ def bracket(request): #bracket page request
                     object.put(Body=output)
                     break
                 index = index + 1
-    else:
+    elif int(year_Val) == 2018:
             index = 0
             for i in scores_18:
                 tempScore = scores_18[index].split();
