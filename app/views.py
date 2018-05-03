@@ -81,7 +81,7 @@ def bracket(request): #bracket page request
     predicted_results_no_names = generate_bracket.get_tourney_results_no_names(year, indicators, weights)
     actual_results = generate_bracket.get_actual_results(year)
     
-    points = generate_bracket.get_points_espn(predicted_results_no_names, actual_results)
+    points = generate_bracket.get_points(predicted_results_no_names, actual_results)
     percentage = points[1] * 100 / 63
 
     # get loser of final game
@@ -144,8 +144,8 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     scores_14.sort()
                     output = '|'.join(scores_14)
+
                     object.put(Body=output)
-                    score_14 = scores_14 = sorted(url2014.read().split("|"))
                     break
                 index = index + 1
 
@@ -162,7 +162,6 @@ def bracket(request): #bracket page request
                     scores_15.sort()
                     output = '|'.join(scores_15)
                     object.put(Body=output)
-                    scores_15 = sorted(url2015.read().split("|"))
                     break
                 index = index + 1
     elif int(year_Val) == 2016:
@@ -179,9 +178,7 @@ def bracket(request): #bracket page request
                         scores_16.sort()
                         output ='|'.join(scores_16)
                         object.put(Body=output)
-                        scores_16 = sorted(url2016.read().split("|"))
                         break
-
                     index = index + 1
     elif int(year_Val) == 2017:
             index = 0
@@ -196,7 +193,6 @@ def bracket(request): #bracket page request
                     scores_17.sort()
                     output ='|'.join(scores_17)
                     object.put(Body=output)
-                    scores_17 = sorted(url2017.read().split("|"))
                     break
                 index = index + 1
     else:
@@ -212,7 +208,6 @@ def bracket(request): #bracket page request
                     scores_18.sort()
                     output = '|'.join(scores_18)
                     object.put(Body=output)
-                    scores_18 = sorted(url2018.read().split("|"))
                     break
                 index = index + 1
 
