@@ -81,7 +81,7 @@ def bracket(request): #bracket page request
     predicted_results_no_names = generate_bracket.get_tourney_results_no_names(year, indicators, weights)
     actual_results = generate_bracket.get_actual_results(year)
     
-    points = generate_bracket.get_points(predicted_results_no_names, actual_results)
+    points = generate_bracket.get_points_espn(predicted_results_no_names, actual_results)
     percentage = points[1] * 100 / 63
 
     # get loser of final game
@@ -144,7 +144,6 @@ def bracket(request): #bracket page request
                     object = s3.Object(bucket, file_name)
                     scores_14.sort()
                     output = '|'.join(scores_14)
-
                     object.put(Body=output)
                     break
                 index = index + 1
